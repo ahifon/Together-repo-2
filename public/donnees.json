@@ -51,93 +51,128 @@
   ],
   "livret": [
     {
-      "titre": "Entrée des mariés",
-      "sous": "Musique · Canon de Pachelbel",
+      "titre": "Cantique d’entrée",
+      "sous": "",
       "texte": [
-        "Les mariés entrent dans l'église accompagnés de leurs parents. L'assemblée est invitée à se lever."
+        "Entrée de la chorale et allumage des bougies à l’autel.",
+        "Ordre d’entrée : Maître d’Autel → Chorale → Conducteur → Mariés → Parrain et Marraine → Fidèles → Hiérarchie."
       ]
     },
     {
-      "titre": "Mot d'accueil",
-      "sous": "Par le célébrant",
+      "titre": "Cantique à genoux et prières",
+      "sous": "",
       "texte": [
-        "Chers amis, soyez les bienvenus. Nous sommes réunis aujourd'hui pour entourer Seynan et Ezechiel qui vont se donner le sacrement du mariage. (Texte d'exemple à remplacer.)"
-      ]
-    },
-    {
-      "titre": "Première lecture",
-      "sous": "Cantique des Cantiques 8, 6-7",
-      "lecteur": "Lue par Marie-Claire, tante de la mariée",
-      "texte": [
-        "Pose-moi comme un sceau sur ton cœur, comme un sceau sur ton bras. Car l'amour est fort comme la Mort.",
-        "Les grandes eaux ne pourront éteindre l'amour, ni les fleuves l'emporter."
+        "« YAH RAMAH ! YAH RAMAH ! » – Sonnerie de clochette – EYIBA (3 fois) – Psaume 51 – Psaume 24 – Gloria – Prière."
       ]
     },
     {
       "titre": "Chant",
-      "sous": "Ubi caritas",
+      "sous": "",
       "texte": [
-        "L'assemblée est invitée à chanter le refrain."
-      ],
-      "paroles": [
-        {
-          "type": "Refrain",
-          "lignes": "Ubi caritas et amor,\nubi caritas, Deus ibi est."
-        },
-        {
-          "type": "Couplet 1",
-          "lignes": "Texte d'exemple : remplacez ces lignes\npar les paroles du couplet,\nune ligne par vers."
-        }
+        "L’assemblée se lève."
       ]
     },
     {
-      "titre": "Échange des consentements",
-      "sous": "et bénédiction des alliances",
+      "titre": "Prière de 3 personnes",
+      "sous": "",
       "texte": [
-        "Ezechiel : « Seynan, veux-tu être mon épouse ? » — Seynan : « Oui, je le veux. »",
-        "Seynan : « Ezechiel, veux-tu être mon époux ? » — Ezechiel : « Oui, je le veux. »",
-        "Les mariés échangent ensuite leurs alliances, signe de leur amour et de leur fidélité."
+        "2 hommes et 1 femme, à genoux."
       ]
     },
     {
-      "titre": "Prière des époux",
-      "sous": "Bénédiction nuptiale",
+      "titre": "Chant",
+      "sous": "",
       "texte": [
-        "Seigneur, nous te confions notre foyer. Donne-nous de nous aimer chaque jour davantage. (Texte d'exemple à remplacer.)"
+        "Chant."
       ]
     },
     {
-      "titre": "Signature des registres",
-      "sous": "Musique · Ave Maria",
+      "titre": "Lecture biblique",
+      "sous": "Éphésiens 5, 15–33",
       "texte": [
-        "Les mariés et leurs témoins signent les registres pendant que l'assemblée reste assise."
+        "Lecture suivie du Gloria."
       ]
     },
     {
-      "titre": "Sortie des mariés",
-      "sous": "Musique · Marche nuptiale",
+      "titre": "Chant",
+      "sous": "",
       "texte": [
-        "Merci de rejoindre le parvis pour accueillir les mariés à leur sortie."
+        "Chant."
       ]
     },
     {
-      "titre": "Les témoins",
-      "sous": "Ils nous accompagnent",
+      "titre": "Annonces, prière, prédication",
+      "sous": "Courte prédication · Méditation",
       "texte": [
-        "Pour Seynan : Ruth Mabiala et Sophie Durand.",
-        "Pour Ezechiel : Daniel Kouassi et Thomas Leroy."
+        "Annonces – Prière – Courte prédication – Méditation.",
+        "Prière après la prédication."
       ]
     },
     {
-      "titre": "Merci",
-      "sous": "Un mot des mariés",
+      "titre": "Consentement des époux",
+      "sous": "",
       "texte": [
-        "Merci d'être venus de près ou de loin pour partager ce jour avec nous. Votre présence est notre plus beau cadeau.",
-        "Seynan & Ezechiel"
+        "Engagement réciproque et réponse « OUI »."
+      ]
+    },
+    {
+      "titre": "Échange des alliances",
+      "sous": "Bénédiction du mariage",
+      "texte": [
+        "Échange des alliances et bénédiction du mariage."
+      ]
+    },
+    {
+      "titre": "Communion",
+      "sous": "",
+      "texte": [
+        "Communion."
+      ]
+    },
+    {
+      "titre": "Chant et quête",
+      "sous": "",
+      "texte": [
+        "Chant et quête.",
+        "Prière sur la quête et action de grâce."
+      ]
+    },
+    {
+      "titre": "Dernière chanson",
+      "sous": "",
+      "texte": [
+        "Dernière chanson."
+      ]
+    },
+    {
+      "titre": "Prière finale",
+      "sous": "",
+      "texte": [
+        "Par une devancière."
+      ]
+    },
+    {
+      "titre": "Notre Père et bénédiction",
+      "sous": "",
+      "texte": [
+        "Notre Père – Bénédiction.",
+        "Alléluia 7 fois dans les quatre points cardinaux."
+      ]
+    },
+    {
+      "titre": "Signature du registre",
+      "sous": "Chant de sortie",
+      "texte": [
+        "Signature du registre de mariage – Chant de sortie."
+      ]
+    },
+    {
+      "titre": "Alléluia final",
+      "sous": "",
+      "texte": [
+        "Alléluia 7 fois dans les quatre points cardinaux."
       ]
     }
-    
-    
   ],
   "tables": [
   {

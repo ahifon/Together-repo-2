@@ -6,8 +6,6 @@ interface Props {
   setOpen: React.Dispatch<React.SetStateAction<Record<number, boolean>>>;
 }
 
-const NUMERALS = ['I','II','III','IV','V','VI','VII','VIII','IX','X','XI','XII'];
-
 export function Ceremonie({ data, open, setOpen }: Props) {
   if (!data) return null;
 
@@ -40,8 +38,9 @@ export function Ceremonie({ data, open, setOpen }: Props) {
           {data.livret.map((sec, i) => {
             const isOpen = !!open[i];
             const [first = '', ...rest] = sec.texte;
-            const lettrine = first.charAt(0);
-            const premier = first.slice(1);
+            const lead = first.match(/^[«"“\s]*\S/)?.[0] ?? '';
+            const lettrine = lead;
+            const premier = first.slice(lead.length);
 
             return (
               <div key={i} style={{ borderBottom: '1px solid rgba(201,164,92,.55)' }}>
@@ -54,12 +53,12 @@ export function Ceremonie({ data, open, setOpen }: Props) {
                     textAlign: 'left', cursor: 'pointer', color: '#0E3B2C',
                   }}
                 >
-                  <span style={{ width: 30, flex: 'none', fontFamily: 'Cinzel, serif', fontSize: 13, fontWeight: 600, color: '#8E2A23' }}>
-                    {NUMERALS[i]}
+                  <span style={{ width: 34, flex: 'none', fontFamily: 'Cinzel, serif', fontSize: 13, fontWeight: 600, color: '#8E2A23' }}>
+                    {i + 1}.
                   </span>
                   <span style={{ flex: 1 }}>
                     <span style={{ display: 'block', fontFamily: 'Cinzel, serif', fontSize: 15, fontWeight: 600, letterSpacing: '.05em' }}>{sec.titre}</span>
-                    <span style={{ display: 'block', fontSize: 16, fontStyle: 'italic', color: '#3A2416' }}>{sec.sous}</span>
+                    {sec.sous && <span style={{ display: 'block', fontSize: 16, fontStyle: 'italic', color: '#3A2416' }}>{sec.sous}</span>}
                   </span>
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8E2A23" strokeWidth="1.5"
                     style={{ transform: isOpen ? 'rotate(180deg)' : 'none', transition: 'transform .25s' }}>
