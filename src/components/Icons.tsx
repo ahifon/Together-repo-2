@@ -92,3 +92,12 @@ export const CornerOrnament = ({ flip }: { flip?: boolean }) => (
     </svg>
   </div>
 );
+
+export const IconBed = ({ color }: { color: string }) => (
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M3 19V6" />
+    <path d="M3 15h18v4" />
+    <path d="M21 15v-3a3 3 0 0 0-3-3h-7v6" />
+    <circle cx="7" cy="11.5" r="1.8" />
+  </svg>
+);

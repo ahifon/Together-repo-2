@@ -133,6 +133,7 @@ export function PlanDeTable({ data, query, setQuery, sel, setSel }: Props) {
           {results.map(({ t, g }, i) => {
             const nomComplet = guestName(g);
             const maskedTel = '•• •• •• ' + qd.slice(6, 8) + ' ' + qd.slice(8);
+            const autres = t.invites.filter(x => x !== g).map(guestName);
             return (
               <div key={i} style={{
                 border: '1px solid rgba(228,201,138,0.7)',
@@ -176,6 +177,16 @@ export function PlanDeTable({ data, query, setQuery, sel, setSel }: Props) {
                   >Voir</button>
                 </div>
 
+                <div style={{ marginTop: 10, paddingTop: 10, borderTop: '1px solid rgba(201,164,92,.26)' }}>
+                  <div style={{ fontFamily: 'Cinzel, serif', fontSize: 10, letterSpacing: '.12em', color: '#E4C98A', textTransform: 'uppercase' }}>
+                    {autres.length > 0 ? 'À votre table' : 'Vous êtes seul à cette table'}
+                  </div>
+                  {autres.map((n, k) => (
+                    <div key={k} style={{ display: 'flex', alignItems: 'center', gap: 10, minHeight: 34, fontSize: 17, color: 'rgba(246,239,226,.92)' }}>
+                      <span style={{ color: '#C9A45C', fontSize: 9 }}>✦</span>{n}
+                    </div>
+                  ))}
+                </div>
               </div>
             );
           })}
