@@ -1,0 +1,403 @@
+{
+  "mariage": {
+    "maries": [
+      "Seynan",
+      "Ezechiel"
+    ],
+    "date": "2026-10-16",
+    "dateTexte": "Vendredi 16 octobre 2026 · Nangis",
+    "accueil": "Votre présence fera de ce moment une journée inoubliable.",
+    "lieu": {
+      "nom": "Domaine des Rois",
+      "adresse": "77370 Nangis"
+    }
+  },
+  "programme": [
+    {
+      "heure": "14:00",
+      "titre": "Cérémonie religieuse",
+      "lieu": "Église Saint-Martin de Nangis",
+      "description": "Merci d'arriver 15 minutes en avance pour vous installer.",
+      "icone": "alliances"
+    },
+    {
+      "heure": "16:00",
+      "titre": "Séance photo",
+      "lieu": "Parvis et jardins du domaine",
+      "description": "Photo de groupe avec tous les invités, puis les familles.",
+      "icone": "photo"
+    },
+    {
+      "heure": "17:00",
+      "titre": "Vin d'honneur",
+      "lieu": "Terrasse du domaine",
+      "description": "Champagne, cocktails et bouchées salées en musique.",
+      "icone": "flutes"
+    },
+    {
+      "heure": "19:00",
+      "titre": "Dîner",
+      "lieu": "Grande salle",
+      "description": "Retrouvez votre table grâce à l'onglet Plan de table.",
+      "icone": "cloche"
+    },
+    {
+      "heure": "20:30",
+      "titre": "Début de soirée",
+      "lieu": "Grande salle",
+      "description": "Ouverture du bal par les mariés, puis piste de danse jusqu'au bout de la nuit.",
+      "icone": "musique"
+    }
+  ],
+  "livret": [
+    {
+      "titre": "Entrée des mariés",
+      "sous": "Musique · Canon de Pachelbel",
+      "texte": [
+        "Les mariés entrent dans l'église accompagnés de leurs parents. L'assemblée est invitée à se lever."
+      ]
+    },
+    {
+      "titre": "Mot d'accueil",
+      "sous": "Par le célébrant",
+      "texte": [
+        "Chers amis, soyez les bienvenus. Nous sommes réunis aujourd'hui pour entourer Seynan et Ezechiel qui vont se donner le sacrement du mariage. (Texte d'exemple à remplacer.)"
+      ]
+    },
+    {
+      "titre": "Première lecture",
+      "sous": "Cantique des Cantiques 8, 6-7",
+      "lecteur": "Lue par Marie-Claire, tante de la mariée",
+      "texte": [
+        "Pose-moi comme un sceau sur ton cœur, comme un sceau sur ton bras. Car l'amour est fort comme la Mort.",
+        "Les grandes eaux ne pourront éteindre l'amour, ni les fleuves l'emporter."
+      ]
+    },
+    {
+      "titre": "Chant",
+      "sous": "Ubi caritas",
+      "texte": [
+        "L'assemblée est invitée à chanter le refrain."
+      ],
+      "paroles": [
+        {
+          "type": "Refrain",
+          "lignes": "Ubi caritas et amor,\nubi caritas, Deus ibi est."
+        },
+        {
+          "type": "Couplet 1",
+          "lignes": "Texte d'exemple : remplacez ces lignes\npar les paroles du couplet,\nune ligne par vers."
+        }
+      ]
+    },
+    {
+      "titre": "Échange des consentements",
+      "sous": "et bénédiction des alliances",
+      "texte": [
+        "Ezechiel : « Seynan, veux-tu être mon épouse ? » — Seynan : « Oui, je le veux. »",
+        "Seynan : « Ezechiel, veux-tu être mon époux ? » — Ezechiel : « Oui, je le veux. »",
+        "Les mariés échangent ensuite leurs alliances, signe de leur amour et de leur fidélité."
+      ]
+    },
+    {
+      "titre": "Prière des époux",
+      "sous": "Bénédiction nuptiale",
+      "texte": [
+        "Seigneur, nous te confions notre foyer. Donne-nous de nous aimer chaque jour davantage. (Texte d'exemple à remplacer.)"
+      ]
+    },
+    {
+      "titre": "Signature des registres",
+      "sous": "Musique · Ave Maria",
+      "texte": [
+        "Les mariés et leurs témoins signent les registres pendant que l'assemblée reste assise."
+      ]
+    },
+    {
+      "titre": "Sortie des mariés",
+      "sous": "Musique · Marche nuptiale",
+      "texte": [
+        "Merci de rejoindre le parvis pour accueillir les mariés à leur sortie."
+      ]
+    },
+    {
+      "titre": "Les témoins",
+      "sous": "Ils nous accompagnent",
+      "texte": [
+        "Pour Seynan : Ruth Mabiala et Sophie Durand.",
+        "Pour Ezechiel : Daniel Kouassi et Thomas Leroy."
+      ]
+    },
+    {
+      "titre": "Merci",
+      "sous": "Un mot des mariés",
+      "texte": [
+        "Merci d'être venus de près ou de loin pour partager ce jour avec nous. Votre présence est notre plus beau cadeau.",
+        "Seynan & Ezechiel"
+      ]
+    }
+  ],
+  "tables": [
+  {
+    "id": "porto-novo",
+    "nom": "Porto-Novo",
+    "x": 0,
+    "y": 0,
+    "invites": [
+      { "nom": "Tata Sophie", "telephone": "" },
+      { "nom": "Moïse", "telephone": "" },
+      { "nom": "Donan", "telephone": "0628646111" },
+      { "nom": "Alice", "telephone": "" },
+      { "nom": "Aïna", "telephone": "0626763657" },
+      { "nom": "Nello", "telephone": "" },
+      { "nom": "Camille", "telephone": "0650035230" },
+      { "nom": "Barth", "telephone": "" },
+      { "nom": "Sourou", "telephone": "06 50 19 76 59" },
+      { "nom": "TEKO Juste", "telephone": "" }
+    ]
+  },
+  {
+    "id": "marcory",
+    "nom": "Marcory",
+    "x": 0,
+    "y": 0,
+    "invites": [
+      { "nom": "Eddy", "telephone": "" },
+      { "nom": "TEKO Jeremy", "telephone": "" },
+      { "nom": "Davilla", "telephone": "0758133296" },
+      { "nom": "Dorice", "telephone": "0663539308" },
+      { "nom": "Sophia", "telephone": "0659381201" },
+      { "nom": "Franck", "telephone": "0759585721" },
+      { "nom": "Femy", "telephone": "0768928868" },
+      { "nom": "K Samuel", "telephone": "0764079823" },
+      { "nom": "Amoussouvi Ruben", "telephone": "" },
+      { "nom": "Kasi Grâce", "telephone": "" }
+    ]
+  },
+  {
+    "id": "artistes",
+    "nom": "Artistes",
+    "x": 0,
+    "y": 0,
+    "invites": [
+      { "nom": "Kouessan", "telephone": "0783163834" }
+    ]
+  },
+  {
+    "id": "cotonou",
+    "nom": "Cotonou",
+    "x": 0,
+    "y": 0,
+    "invites": [
+      { "nom": "Tantie Yemi", "telephone": "" },
+      { "nom": "Tonton Thomas", "telephone": "" },
+      { "nom": "Tantie Nisso", "telephone": "" },
+      { "nom": "Tonton Alain", "telephone": "" },
+      { "nom": "Tata Arlette", "telephone": "0784910152" },
+      { "nom": "Tonton Arsène", "telephone": "" },
+      { "nom": "Anani Carole", "telephone": "0684469218" },
+      { "nom": "Anani Aldo", "telephone": "" }
+    ]
+  },
+  {
+    "id": "cocody",
+    "nom": "Cocody",
+    "x": 0,
+    "y": 0,
+    "invites": [
+      { "nom": "Tonton David", "telephone": "" },
+      { "nom": "Maman Christine", "telephone": "" },
+      { "nom": "Diana", "telephone": "" },
+      { "nom": "Rousselot de saint ceran Alexandra", "telephone": "" },
+      { "nom": "Bialy Sarah", "telephone": "0787860850" },
+      { "nom": "Rochelle", "telephone": "0676698231" },
+      { "nom": "E Samuel", "telephone": "" },
+      { "nom": "Ph", "telephone": "" },
+      { "nom": "Delboise", "telephone": "" },
+      { "nom": "Rousselot de saint ceran Romain", "telephone": "" }
+    ]
+  },
+  {
+    "id": "treichville",
+    "nom": "Treichville",
+    "x": 0,
+    "y": 0,
+    "invites": [
+      { "nom": "JSD", "telephone": "" },
+      { "nom": "S Samuelle", "telephone": "0033781290961" },
+      { "nom": "H Norris", "telephone": "" },
+      { "nom": "K Divine", "telephone": "0661825960" },
+      { "nom": "K Sarah", "telephone": "0673290924" },
+      { "nom": "Happy", "telephone": "0782709001" },
+      { "nom": "Willy de Happy", "telephone": "" },
+      { "nom": "Casimir", "telephone": "0651765107" },
+      { "nom": "Paulin", "telephone": "" }
+    ]
+  },
+  {
+    "id": "kpalime",
+    "nom": "Kpalimé",
+    "x": 0,
+    "y": 0,
+    "invites": [
+      { "nom": "Tonton Amen", "telephone": "" },
+      { "nom": "Mam Salome", "telephone": "" },
+      { "nom": "Maman Georgette", "telephone": "0638473046" },
+      { "nom": "Tonton Jean Bernard", "telephone": "" },
+      { "nom": "Maman Grâce", "telephone": "0622964431" },
+      { "nom": "Maman Betty", "telephone": "" },
+      { "nom": "Papa GB", "telephone": "" },
+      { "nom": "Djengue Hortense", "telephone": "06 63 20 66 13" },
+      { "nom": "Beausejour Ruth", "telephone": "" }
+    ]
+  },
+  {
+    "id": "lome",
+    "nom": "Lomé",
+    "x": 0,
+    "y": 0,
+    "invites": [
+      { "nom": "Adjourouvi Shannon", "telephone": "0661127407" },
+      { "nom": "Ashley", "telephone": "0634908610" },
+      { "nom": "Merveille", "telephone": "0629995392" },
+      { "nom": "Michelle", "telephone": "0698870424" },
+      { "nom": "Melissa", "telephone": "0668819361" },
+      { "nom": "Melody", "telephone": "0695548351" },
+      { "nom": "Hairat", "telephone": "07 83 87 58 18" },
+      { "nom": "Manon", "telephone": "06 42 78 67 77" },
+      { "nom": "Sara", "telephone": "0781477833" },
+      { "nom": "JC", "telephone": "" }
+    ]
+  },
+  {
+    "id": "enfants",
+    "nom": "Enfants",
+    "x": 0,
+    "y": 0,
+    "invites": [
+      { "nom": "JG", "telephone": "" },
+      { "nom": "Emma", "telephone": "" },
+      { "nom": "Joana", "telephone": "" },
+      { "nom": "ALOKPO Nathan", "telephone": "" },
+      { "nom": "Nellie", "telephone": "" },
+      { "nom": "Maelia", "telephone": "" },
+      { "nom": "Fille de Vanita", "telephone": "" },
+      { "nom": "Fils de Vanita", "telephone": "" },
+      { "nom": "Davidson", "telephone": "" },
+      { "nom": "Fils Salomon", "telephone": "" }
+    ]
+  },
+  {
+    "id": "aneho",
+    "nom": "Aného",
+    "x": 0,
+    "y": 0,
+    "invites": [
+      { "nom": "Céline", "telephone": "" },
+      { "nom": "Papa Yannick", "telephone": "0603758964" },
+      { "nom": "Maman Yannick", "telephone": "" },
+      { "nom": "Vanita", "telephone": "0766838306" },
+      { "nom": "Ousmane", "telephone": "0751551418" },
+      { "nom": "Ornella", "telephone": "" },
+      { "nom": "David Zaucyn", "telephone": "0605895421" },
+      { "nom": "Ophelie", "telephone": "0783834018" }
+    ]
+  },
+  {
+    "id": "yopougon",
+    "nom": "Yopougon",
+    "x": 0,
+    "y": 0,
+    "invites": [
+      { "nom": "Coulibaly", "telephone": "0669290677" },
+      { "nom": "Django Salomon", "telephone": "0612328071" },
+      { "nom": "Django Hilane", "telephone": "0612328071" },
+      { "nom": "Jeremie propha", "telephone": "0631485689" },
+      { "nom": "Mickaël gangan", "telephone": "0614569520" },
+      { "nom": "Emmanuel Choisy", "telephone": "" },
+      { "nom": "Vivien", "telephone": "" },
+      { "nom": "Femme Vivien", "telephone": "" },
+      { "nom": "GBA Gedéon", "telephone": "0763922827" },
+      { "nom": "GBA Sandrine", "telephone": "" }
+    ]
+  },
+  {
+    "id": "fidjrosse",
+    "nom": "Fidjrossè",
+    "x": 0,
+    "y": 0,
+    "invites": [
+      { "nom": "Memel Roland", "telephone": "0778815652" },
+      { "nom": "Keita", "telephone": "" },
+      { "nom": "Seydou", "telephone": "" },
+      { "nom": "Memel Richard", "telephone": "0783661280" },
+      { "nom": "Memel Sabitiou", "telephone": "" },
+      { "nom": "Philoxène Domiline", "telephone": "00590690535545" },
+      { "nom": "Philoxène Nathan", "telephone": "" }
+    ]
+  },
+  {
+    "id": "calavi",
+    "nom": "Calavi",
+    "x": 0,
+    "y": 0,
+    "invites": [
+      { "nom": "Basilia", "telephone": "" },
+      { "nom": "Philippe", "telephone": "" },
+      { "nom": "Stan", "telephone": "0663200018" },
+      { "nom": "Mélanie", "telephone": "0769236226" },
+      { "nom": "Maître Jeremie", "telephone": "" },
+      { "nom": "Maître Israèl", "telephone": "" },
+      { "nom": "Femme maître Israèl", "telephone": "" },
+      { "nom": "Boucaud Maryse", "telephone": "" }
+    ]
+  },
+  {
+    "id": "grand-popo",
+    "nom": "Grand-Popo",
+    "x": 0,
+    "y": 0,
+    "invites": [
+      { "nom": "Papa Célestin", "telephone": "0621239417" },
+      { "nom": "Papa Zélé", "telephone": "" },
+      { "nom": "Maman Zélé", "telephone": "" },
+      { "nom": "Papa Mikaël", "telephone": "" },
+      { "nom": "Maman Mikaël", "telephone": "" },
+      { "nom": "Maman Valérie", "telephone": "0635388833" },
+      { "nom": "Papa marcelin", "telephone": "0627696529" },
+      { "nom": "Maman Jaki Daoukro", "telephone": "" },
+      { "nom": "Mari maman Jackie Daoukro", "telephone": "" },
+      { "nom": "Devancier Samson", "telephone": "" }
+    ]
+  },
+  {
+    "id": "kara",
+    "nom": "Kara",
+    "x": 0,
+    "y": 0,
+    "invites": [
+      { "nom": "Jeff", "telephone": "" },
+      { "nom": "Mailey", "telephone": "0618626030" },
+      { "nom": "Larry", "telephone": "0783163207" },
+      { "nom": "Daniel Lago", "telephone": "0767220823" },
+      { "nom": "Marie Lago", "telephone": "" },
+      { "nom": "Ashley", "telephone": "0768205555" },
+      { "nom": "M'bock Pierre", "telephone": "0769842878" },
+      { "nom": "M'bock Timberlin", "telephone": "0610554312" }
+    ]
+  },
+  {
+    "id": "sans-ville",
+    "nom": "Sans ville",
+    "x": 0,
+    "y": 0,
+    "invites": [
+      { "nom": "ADIHO Heliodore", "telephone": "" },
+      { "nom": "Elisée", "telephone": "0766468643" },
+      { "nom": "Papa Toukoum", "telephone": "" },
+      { "nom": "Maman Toukoum", "telephone": "" },
+      { "nom": "Maman Doza", "telephone": "0626375886" }
+    ]
+  }
+]
+}

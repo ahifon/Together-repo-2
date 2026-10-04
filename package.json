@@ -1,25 +1,23 @@
 {
-  "name": "mariage-budget",
+  "name": "mariage-grace-ezechiel",
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
   },
   "dependencies": {
-    "@supabase/supabase-js": "^2.58.0",
-    "next": "^16.3.1",
-    "react": "^19.2.8",
-    "react-dom": "^19.2.8"
+    "@supabase/supabase-js": "^2.117.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
-    "@tailwindcss/postcss": "^4.1.13",
-    "@types/node": "^22.15.0",
-    "@types/react": "^19.2.18",
-    "@types/react-dom": "^19.2.4",
-    "tailwindcss": "^4.1.13",
-    "typescript": "^5.9.2"
+    "@types/node": "^26.6.4",
+    "@types/react": "^18.3.31",
+    "@types/react-dom": "^18.3.7",
+    "@vitejs/plugin-react": "^4.7.0",
+    "typescript": "^5.9.3",
+    "vite": "^5.4.21"
   }
 }
