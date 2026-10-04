@@ -61,6 +61,17 @@ export function Accueil({ data, now, goDay, goPlan, goBook }: Props) {
       display: 'flex', flexDirection: 'column', alignItems: 'center',
       textAlign: 'center', animation: 'fadeUp .4s ease both',
     }}>
+      {/* Background photo (transparent) */}
+      <div aria-hidden style={{
+        position: 'absolute', top: 0, left: 0, right: 0, pointerEvents: 'none',
+        aspectRatio: '1086 / 1448',
+        backgroundImage: 'url(couple.jpg)',
+        backgroundSize: '100% 100%',
+        backgroundPosition: 'center center',
+        backgroundRepeat: 'no-repeat',
+        opacity: 0.15,
+      }} />
+
       {/* Particles */}
       <div style={{ position: 'absolute', inset: 0, pointerEvents: 'none' }}>
         {PARTICLE_XS.map((x, i) => (
