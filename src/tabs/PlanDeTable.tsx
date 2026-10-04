@@ -55,11 +55,6 @@ export function PlanDeTable({ data, query, setQuery, sel, setSel }: Props) {
     setQuery('');
   };
 
-  const openTableFromResult = (tableId: string) => {
-    setSel(tableId);
-    setQuery('');
-  };
-
   const displayTables = data.tables.map((table, index) => {
     const hasCustomPosition = Number.isFinite(table.x) && Number.isFinite(table.y) && !(table.x === 0 && table.y === 0);
     const columns = Math.min(4, Math.max(2, Math.ceil(Math.sqrt(Math.max(data.tables.length, 1)))));
@@ -166,15 +161,6 @@ export function PlanDeTable({ data, query, setQuery, sel, setSel }: Props) {
                     <div style={{ marginTop: 2, fontFamily: 'Cinzel, serif', fontSize: 19, fontWeight: 700, color: '#F6EFE2' }}>{t.nom}</div>
                     <div style={{ marginTop: 2, fontSize: 12, color: 'rgba(246,239,226,.76)' }}>{maskedTel}</div>
                   </div>
-                  <button
-                    onClick={() => openTableFromResult(t.id)}
-                    style={{
-                      minHeight: 40, padding: '0 14px',
-                      background: 'linear-gradient(135deg, #D9B76B, #B98A42)', border: 0, borderRadius: 999, color: '#132B20',
-                      fontFamily: 'Cinzel, serif', fontSize: 10, fontWeight: 700,
-                      letterSpacing: '.1em', cursor: 'pointer', whiteSpace: 'nowrap',
-                    }}
-                  >Voir</button>
                 </div>
 
                 <div style={{ marginTop: 10, paddingTop: 10, borderTop: '1px solid rgba(201,164,92,.26)' }}>
