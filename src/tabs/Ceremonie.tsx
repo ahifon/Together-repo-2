@@ -24,9 +24,9 @@ export function Ceremonie({ data, open, setOpen }: Props) {
         <div style={{ border: '1px solid rgba(201,164,92,.7)', padding: '28px 18px 20px' }}>
           {/* Header */}
           <div style={{ textAlign: 'center' }}>
-            <div style={{ fontFamily: 'Cinzel, serif', fontSize: 12, letterSpacing: '.3em', color: '#8E4A39' }}>Livret de messe</div>
-            <h2 style={{ margin: '4px 0 0', fontFamily: "'Great Vibes', cursive", fontWeight: 400, fontSize: 48, lineHeight: 1.1, color: '#0E3B2C' }}>Cérémonie</h2>
-            <div style={{ fontSize: 17, fontStyle: 'italic', color: '#3A2416' }}>Église Saint-Martin de Nangis · 14h00</div>
+            <div style={{ fontFamily: 'Cinzel, serif', fontSize: 12, letterSpacing: '.3em', color: '#8E4A39' }}></div>
+            <h2 style={{ margin: '4px 0 0', fontFamily: "'Great Vibes', cursive", fontWeight: 400, fontSize: 48, lineHeight: 1.1, color: '#0E3B2C' }}>Cérémonie Réligieuse</h2>
+            <div style={{ fontSize: 17, fontStyle: 'italic', color: '#3A2416' }}>Domaines des Rois · 14h00</div>
             <div style={{ display: 'flex', alignItems: 'center', gap: 12, margin: '14px auto 8px', color: '#C9A45C', width: 160 }}>
               <span style={{ flex: 1, height: 1, background: '#C9A45C' }} />
               <span style={{ fontSize: 12 }}>✦</span>
