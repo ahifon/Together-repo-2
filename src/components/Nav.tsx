@@ -16,10 +16,11 @@ const TABS: { id: Tab; label: string }[] = [
 export function BottomNav({ tab, onGo }: Props) {
   return (
     <div style={{
-      position: 'absolute', left: 0, right: 0, bottom: 0, height: 76,
+      position: 'absolute', left: 0, right: 0, bottom: 0,
+      height: 'calc(var(--nav-h) + env(safe-area-inset-bottom, 0px))',
       background: '#F7F0E2',
       borderTop: '1px solid rgba(162, 129, 65, 0.5)',
-      display: 'flex', padding: '6px 6px 14px', zIndex: 5,
+      display: 'flex', padding: '6px 6px calc(10px + env(safe-area-inset-bottom, 0px))', zIndex: 5,
     }}>
       {TABS.map(({ id, label }) => {
         const active = id === tab;
