@@ -4,6 +4,7 @@ import { Accueil } from './tabs/Accueil';
 import { Journee } from './tabs/Journee';
 import { Ceremonie } from './tabs/Ceremonie';
 import { PlanDeTable } from './tabs/PlanDeTable';
+import { Hebergements } from './tabs/Hebergements';
 import { BottomNav } from './components/Nav';
 import { loadWeddingData } from './lib/weddingData';
 
@@ -111,6 +112,7 @@ export function WeddingApp({
             setSel={setSel}
           />
         )}
+        {tab === 'hebergements' && <Hebergements />}
       </div>
 
       {/* Fixed bottom navigation */}

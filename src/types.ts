@@ -1,4 +1,4 @@
-export type Tab = 'accueil' | 'journee' | 'ceremonie' | 'plan';
+export type Tab = 'accueil' | 'journee' | 'ceremonie' | 'plan' | 'hebergements';
 export type Sim = 'reel' | 'veille' | 'matin' | '14h30' | '17h30' | '21h';
 
 export interface Invite {

@@ -1,5 +1,5 @@
 import type { Tab } from '../types';
-import { IconHome, IconClock, IconBook, IconTable } from './Icons';
+import { IconHome, IconClock, IconBook, IconTable, IconBed } from './Icons';
 
 interface Props {
   tab: Tab;
@@ -10,7 +10,8 @@ const TABS: { id: Tab; label: string }[] = [
   { id: 'accueil', label: 'Accueil' },
   { id: 'journee', label: 'Journée' },
   { id: 'ceremonie', label: 'Cérémonie' },
-  { id: 'plan', label: 'Plan de table' },
+  { id: 'plan', label: 'Plan' },
+  { id: 'hebergements', label: 'Logements' },
 ];
 
 export function BottomNav({ tab, onGo }: Props) {
@@ -40,7 +41,8 @@ export function BottomNav({ tab, onGo }: Props) {
             {id === 'journee' && <IconClock color={color} />}
             {id === 'ceremonie' && <IconBook color={color} />}
             {id === 'plan' && <IconTable color={color} />}
-            <span style={{ fontFamily: 'Cinzel, serif', fontSize: 11, letterSpacing: '.08em' }}>{label}</span>
+            {id === 'hebergements' && <IconBed color={color} />}
+            <span style={{ fontFamily: 'Cinzel, serif', fontSize: 10, letterSpacing: '.04em' }}>{label}</span>
           </button>
         );
       })}
