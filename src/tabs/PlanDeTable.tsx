@@ -5,8 +5,6 @@ interface Props {
   data: Data | null;
   query: string;
   setQuery: (q: string) => void;
-  view: 'plan' | 'liste';
-  setView: (v: 'plan' | 'liste') => void;
   sel: string | null;
   setSel: (id: string | null) => void;
 }
@@ -27,7 +25,7 @@ function guestName(g: Table['invites'][number]): string {
   return g.nom;
 }
 
-export function PlanDeTable({ data, query, setQuery, view, setView, sel, setSel }: Props) {
+export function PlanDeTable({ data, query, setQuery, sel, setSel }: Props) {
   if (!data) return null;
 
   const qd = telN(query);
@@ -58,23 +56,9 @@ export function PlanDeTable({ data, query, setQuery, view, setView, sel, setSel 
   };
 
   const openTableFromResult = (tableId: string) => {
-    setView('plan');
     setSel(tableId);
     setQuery('');
   };
-
-  const planBg = view === 'plan' ? '#C9A45C' : 'transparent';
-  const planFg = view === 'plan' ? '#0A2A1F' : '#F6EFE2';
-  const listBg = view === 'liste' ? '#C9A45C' : 'transparent';
-  const listFg = view === 'liste' ? '#0A2A1F' : '#F6EFE2';
-
-  const allGuests = data.tables.flatMap((table) =>
-    table.invites.map((guest, index) => ({
-      guest,
-      table,
-      seat: index + 1,
-    }))
-  );
 
   const displayTables = data.tables.map((table, index) => {
     const hasCustomPosition = Number.isFinite(table.x) && Number.isFinite(table.y) && !(table.x === 0 && table.y === 0);
@@ -149,7 +133,6 @@ export function PlanDeTable({ data, query, setQuery, view, setView, sel, setSel 
           {results.map(({ t, g }, i) => {
             const nomComplet = guestName(g);
             const maskedTel = '•• •• •• ' + qd.slice(6, 8) + ' ' + qd.slice(8);
-            const autres = t.invites.filter(x => x !== g).map(guestName).slice(0, 3).join(' · ');
             return (
               <div key={i} style={{
                 border: '1px solid rgba(228,201,138,0.7)',
@@ -193,9 +176,6 @@ export function PlanDeTable({ data, query, setQuery, view, setView, sel, setSel 
                   >Voir</button>
                 </div>
 
-                <div style={{ marginTop: 8, paddingTop: 8, borderTop: '1px solid rgba(201,164,92,.26)', fontSize: 12, color: 'rgba(246,239,226,.82)', lineHeight: 1.5 }}>
-                  {autres ? `Avec vous : ${autres}` : 'Vous êtes seul à cette table'}
-                </div>
               </div>
             );
           })}
@@ -216,24 +196,8 @@ export function PlanDeTable({ data, query, setQuery, view, setView, sel, setSel 
         </div>
       )}
 
-      {/* View toggle */}
-      <div style={{
-        marginTop: 22,
-        display: 'grid',
-        gridTemplateColumns: '1fr 1fr',
-        border: '1px solid rgba(212,180,103,0.8)',
-        borderRadius: 14,
-        overflow: 'hidden',
-        boxShadow: '0 10px 18px rgba(0,0,0,0.12)',
-      }}>
-        <button onClick={() => setView('plan')} style={{ minHeight: 46, border: 0, background: planBg, color: planFg, fontFamily: 'Cinzel, serif', fontSize: 12, letterSpacing: '.14em', cursor: 'pointer', transition: 'background .2s' }}>Plan de salle</button>
-        <button onClick={() => setView('liste')} style={{ minHeight: 46, border: 0, background: listBg, color: listFg, fontFamily: 'Cinzel, serif', fontSize: 12, letterSpacing: '.14em', cursor: 'pointer', transition: 'background .2s' }}>Liste des tables</button>
-      </div>
-
       {/* Plan view */}
-      {view === 'plan' && (
-        <>
-          <div style={{ marginTop: 12, border: '1px solid rgba(201,164,92,0.7)', padding: 5, background: 'linear-gradient(180deg, rgba(10,42,31,0.95), rgba(8,20,18,0.98))', borderRadius: 16, boxShadow: '0 18px 36px rgba(0,0,0,0.2)' }}>
+      <div style={{ marginTop: 22, border: '1px solid rgba(201,164,92,0.7)', padding: 5, background: 'linear-gradient(180deg, rgba(10,42,31,0.95), rgba(8,20,18,0.98))', borderRadius: 16, boxShadow: '0 18px 36px rgba(0,0,0,0.2)' }}>
             <div style={{ position: 'relative', height: 440, border: '1px solid rgba(201,164,92,.4)', background: 'radial-gradient(ellipse at 50% 30%, rgba(24,80,63,1), rgba(10,42,31,0.96) 45%, rgba(7,21,17,1) 100%)', overflow: 'hidden', borderRadius: 12 }}>
               <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(transparent 0%, rgba(255,255,255,0.02) 100%)' }} />
               <div style={{ position: 'absolute', left: '50%', bottom: 8, transform: 'translateX(-50%)', fontFamily: 'Cinzel, serif', fontSize: 10, letterSpacing: '.24em', color: '#C9A45C' }}>
@@ -246,15 +210,13 @@ export function PlanDeTable({ data, query, setQuery, view, setView, sel, setSel 
                 const glow = hi ? '0 0 0 4px rgba(228,201,138,.25), 0 0 24px rgba(228,201,138,.55)' : '0 4px 10px rgba(0,0,0,.35)';
 
                 return (
-                  <button
+                  <div
                     key={t.id}
-                    onClick={() => setSel(t.id)}
                     aria-label={t.nom}
                     style={{
                       position: 'absolute',
                       left: t.displayX + '%', top: t.displayY + '%',
                       transform: 'translate(-50%, -50%)',
-                      padding: 0, border: 0, background: 'none', cursor: 'pointer',
                     }}
                   >
                     {t.honneur ? (
@@ -284,113 +246,11 @@ export function PlanDeTable({ data, query, setQuery, view, setView, sel, setSel 
                         <span style={{ fontSize: 12, fontStyle: 'italic' }}>{t.invites.length} pers.</span>
                       </span>
                     )}
-                  </button>
+                  </div>
                 );
               })}
             </div>
-          </div>
-
-        </>
-      )}
-
-      {/* List view */}
-      {view === 'liste' && (
-        <div style={{ marginTop: 12, display: 'flex', flexDirection: 'column', gap: 14 }}>
-          <div style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            padding: '10px 12px',
-            border: '1px solid rgba(201,164,92,.45)',
-            background: 'linear-gradient(135deg, rgba(201,164,92,.12), rgba(246,239,226,.04))',
-            color: '#E4C98A',
-          }}>
-            <div style={{ fontFamily: 'Cinzel, serif', fontSize: 11, letterSpacing: '.18em', textTransform: 'uppercase' }}>
-              Liste des invités
-            </div>
-            <div style={{ fontSize: 13, color: 'rgba(246,239,226,.8)' }}>{allGuests.length} invités</div>
-          </div>
-
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
-            {allGuests.map(({ guest, table, seat }) => (
-              <div
-                key={`${table.id}-${guest.nom}-${seat}`}
-                style={{
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  alignItems: 'center',
-                  gap: 12,
-                  padding: '12px 14px',
-                  background: 'linear-gradient(135deg, rgba(15,56,44,.8), rgba(29,67,54,.45))',
-                  border: '1px solid rgba(201,164,92,.4)',
-                  boxShadow: '0 8px 20px rgba(10,42,31,.18)',
-                  color: '#F6EFE2',
-                }}
-              >
-                <div style={{ minWidth: 0, flex: 1 }}>
-                  <div style={{ fontSize: 17, fontWeight: 700, letterSpacing: '.02em' }}>{guestName(guest)}</div>
-                  <div style={{ marginTop: 4, fontSize: 13, color: 'rgba(246,239,226,.72)' }}>
-                    {table.nom}
-                  </div>
-                </div>
-                <div style={{
-                  flex: 'none',
-                  minWidth: 88,
-                  textAlign: 'center',
-                  padding: '8px 10px',
-                  background: 'rgba(201,164,92,.12)',
-                  border: '1px solid rgba(201,164,92,.45)',
-                  fontFamily: 'Cinzel, serif',
-                  fontSize: 11,
-                  letterSpacing: '.08em',
-                  color: '#E4C98A',
-                }}>
-                  Place {seat}
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div style={{
-            marginTop: 8,
-            padding: '10px 12px',
-            border: '1px solid rgba(201,164,92,.45)',
-            background: 'linear-gradient(135deg, rgba(201,164,92,.08), rgba(246,239,226,.02))',
-            fontFamily: 'Cinzel, serif',
-            fontSize: 11,
-            letterSpacing: '.12em',
-            color: '#C9A45C',
-            textTransform: 'uppercase',
-          }}>
-            Tables
-          </div>
-
-          {data.tables.map(t => (
-            <button
-              key={t.id}
-              onClick={() => setSel(t.id)}
-              style={{
-                textAlign: 'left',
-                padding: '16px 16px',
-                minHeight: 44,
-                background: 'linear-gradient(135deg, rgba(246,239,226,.04), rgba(201,164,92,.05))',
-                border: '1px solid rgba(201,164,92,.4)',
-                boxShadow: '0 10px 18px rgba(10,42,31,.12)',
-                color: '#F6EFE2',
-                cursor: 'pointer',
-              }}
-            >
-              <span style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 8 }}>
-                <span style={{ fontFamily: 'Cinzel, serif', fontSize: 16, fontWeight: 600, letterSpacing: '.06em', color: '#E4C98A' }}>{t.nom}</span>
-                <span style={{ fontSize: 13, fontStyle: 'italic', color: 'rgba(246,239,226,.8)' }}>{t.invites.length} pers.</span>
-              </span>
-              <span style={{ display: 'block', marginTop: 8, fontSize: 15, lineHeight: 1.5, color: 'rgba(246,239,226,.88)' }}>
-                {t.invites.map((guest, index) => `${guestName(guest)} · place ${index + 1}`).join(' • ')}
-              </span>
-            </button>
-          ))}
-        </div>
-      )}
+      </div>
 
       <div style={{ marginTop: 28, textAlign: 'center', fontFamily: "'Great Vibes', cursive", fontSize: 24, color: '#C9A45C' }}>
         Seynan &amp; Ezechiel · 16.10.2026
