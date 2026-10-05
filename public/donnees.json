@@ -54,8 +54,8 @@
       "titre": "Procession",
       "details": [
         "Entrée des DH & GH et témoins",
-        "Entrée du marié accompagné",
-        "Petite fille + la mariée accompagnée"
+        "Entrée du marié",
+        "Entrée de la mariée accompagnée"
       ]
     },
     {
@@ -68,10 +68,9 @@
       ]
     },
     {
-      "titre": "Cloches",
+      "titre": "Démarrage du culte",
       "details": [
-        "Eyiba x 3 – Psaume 51 – Psaume 24",
-        "Prière de rémission des péchés – Notre Père"
+        "Récitation du Psaume 51 et Psaume 24"
       ],
       "chants": [
         "1er cantique"
@@ -85,6 +84,9 @@
     },
     {
       "titre": "Lecture",
+      "details": [
+        "Éphésiens 5, 15–33"
+      ],
       "chants": [
         "Gloria"
       ]
@@ -96,7 +98,7 @@
       "titre": "Prédication"
     },
     {
-      "titre": "Discours d’un proche"
+      "titre": "Discours des  proches"
     },
     {
       "titre": "Échange des alliances"
