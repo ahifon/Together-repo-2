@@ -26,9 +26,14 @@ export interface Step {
 
 export interface Section {
   titre: string;
-  duree?: string;
   details?: string[];
   chants?: string[];
+}
+
+export interface Etape {
+  titre: string;
+  sous?: string;
+  texte?: string[];
 }
 
 export interface Data {
@@ -40,6 +45,7 @@ export interface Data {
     lieu: { nom: string; adresse: string };
   };
   programme: Step[];
-  livret: Section[];
+  deroule: Section[];
+  livret: Etape[];
   tables: Table[];
 }

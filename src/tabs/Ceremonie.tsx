@@ -44,9 +44,6 @@ export function Ceremonie({ data }: Props) {
               Vendredi 16 octobre 2026
             </div>
             <Ornament />
-            <div style={{ fontSize: 16, fontStyle: 'italic', color: '#5A4630' }}>
-              Durée prévue · environ 1 h 30
-            </div>
           </div>
 
           {/* Steps */}
@@ -56,8 +53,8 @@ export function Ceremonie({ data }: Props) {
               background: `linear-gradient(180deg, transparent, ${GOLD} 4%, ${GOLD} 96%, transparent)`,
             }} />
 
-            {data.livret.map((s, i) => (
-              <li key={i} style={{ position: 'relative', display: 'flex', gap: 14, paddingBottom: i === data.livret.length - 1 ? 0 : 22 }}>
+            {data.deroule.map((s, i) => (
+              <li key={i} style={{ position: 'relative', display: 'flex', gap: 14, paddingBottom: i === data.deroule.length - 1 ? 0 : 22 }}>
                 <div style={{
                   position: 'relative', zIndex: 1, flex: 'none',
                   width: 36, height: 36, borderRadius: '50%',
@@ -70,19 +67,10 @@ export function Ceremonie({ data }: Props) {
                 </div>
 
                 <div style={{ flex: 1, minWidth: 0, paddingTop: 2 }}>
-                  <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', gap: 10 }}>
+                  <div>
                     <div style={{ fontFamily: 'Cinzel, serif', fontSize: 16, fontWeight: 600, letterSpacing: '.04em', lineHeight: 1.3, color: INK }}>
                       {s.titre}
                     </div>
-                    {s.duree && (
-                      <div style={{
-                        flex: 'none', padding: '2px 9px', borderRadius: 999,
-                        border: '1px solid rgba(176,138,62,.6)', background: 'rgba(201,164,92,.12)',
-                        fontFamily: 'Cinzel, serif', fontSize: 10, letterSpacing: '.08em', color: '#7A5A22', whiteSpace: 'nowrap',
-                      }}>
-                        {s.duree}
-                      </div>
-                    )}
                   </div>
 
                   {s.details && s.details.length > 0 && (

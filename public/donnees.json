@@ -49,9 +49,88 @@
       "icone": "musique"
     }
   ],
+  "deroule": [
+    {
+      "titre": "Procession",
+      "details": [
+        "Entrée des DH & GH et témoins",
+        "Entrée du marié accompagné",
+        "Petite fille + la mariée accompagnée"
+      ]
+    },
+    {
+      "titre": "Prière d’ouverture",
+      "details": [
+        "Conducteur"
+      ],
+      "chants": [
+        "Yara Sara – Yaraman"
+      ]
+    },
+    {
+      "titre": "Cloches",
+      "details": [
+        "Eyiba x 3 – Psaume 51 – Psaume 24",
+        "Prière de rémission des péchés – Notre Père"
+      ],
+      "chants": [
+        "1er cantique"
+      ]
+    },
+    {
+      "titre": "Prière d’une personne",
+      "chants": [
+        "2ème cantique"
+      ]
+    },
+    {
+      "titre": "Lecture",
+      "chants": [
+        "Gloria"
+      ]
+    },
+    {
+      "titre": "Credo & prière du conducteur"
+    },
+    {
+      "titre": "Prédication"
+    },
+    {
+      "titre": "Discours d’un proche"
+    },
+    {
+      "titre": "Échange des alliances"
+    },
+    {
+      "titre": "Communion",
+      "chants": [
+        "Dernier cantique"
+      ]
+    },
+    {
+      "titre": "Dernière prière",
+      "details": [
+        "Notre Père – Gloria – Bénédiction – Alléluia 4 coins"
+      ]
+    },
+    {
+      "titre": "Signature des registres"
+    },
+    {
+      "titre": "Réjouissances"
+    },
+    {
+      "titre": "Procession de sortie",
+      "details": [
+        "Les mariés",
+        "Les témoins",
+        "Les DH & GH"
+      ]
+    }
+  ],
   "livret": [
     {
-      "titre": "Cantique d’entrée",
+      "titre": "Entrée des mariés",
       "sous": "",
       "texte": [
         "Entrée des mariés"
