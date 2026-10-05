@@ -124,58 +124,58 @@ export function PlanDeTable({ data, query, setQuery, sel, setSel }: Props) {
 
       {/* Results */}
       {results.length > 0 && (
-        <div style={{ marginTop: 14, display: 'flex', flexDirection: 'column', gap: 10 }}>
-          {results.map(({ t, g }, i) => {
-            const nomComplet = guestName(g);
-            const maskedTel = '•• •• •• ' + qd.slice(6, 8) + ' ' + qd.slice(8);
-            const autres = t.invites.filter(x => x !== g).map(guestName);
-            return (
-              <div key={i} style={{
-                border: '1px solid rgba(228,201,138,0.7)',
-                background: 'linear-gradient(135deg, rgba(201,164,92,0.18), rgba(12,42,31,0.9), rgba(10,14,13,0.96))',
-                borderRadius: 18,
-                padding: '10px 12px',
-                boxShadow: '0 16px 30px rgba(0,0,0,0.22), 0 0 20px rgba(201,164,92,0.12)',
-                backdropFilter: 'blur(4px)',
-                animation: 'fadeUp .3s ease both',
+        <div style={{ marginTop: 16, display: 'flex', flexDirection: 'column', gap: 14 }}>
+          {results.map(({ t, g }, i) => (
+            <div key={i} style={{
+              position: 'relative',
+              padding: 5,
+              borderRadius: 22,
+              border: '1px solid rgba(228,201,138,0.75)',
+              background: 'linear-gradient(145deg, rgba(228,201,138,0.22), rgba(12,42,31,0.92) 45%, rgba(8,18,15,0.98))',
+              boxShadow: '0 22px 44px rgba(0,0,0,0.35), 0 0 32px rgba(201,164,92,0.18), inset 0 1px 0 rgba(255,255,255,0.12)',
+              animation: 'fadeUp .35s ease both',
+            }}>
+              <div style={{
+                position: 'relative',
+                padding: '22px 20px 24px',
+                borderRadius: 17,
+                border: '1px solid rgba(201,164,92,0.38)',
+                textAlign: 'center',
               }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 12 }}>
-                  <div style={{ fontFamily: 'Cinzel, serif', fontSize: 10, letterSpacing: '.12em', color: '#E4C98A', textTransform: 'uppercase' }}>
-                    Table trouvée
-                  </div>
-                  <button
-                    onClick={clearSearch}
-                    aria-label="Fermer le résultat"
-                    style={{
-                      width: 28, height: 28, borderRadius: 999,
-                      border: '1px solid rgba(201,164,92,.55)',
-                      background: 'rgba(201,164,92,.08)', color: '#F4D9A4',
-                      fontSize: 18, cursor: 'pointer', lineHeight: 1,
-                    }}
-                  >×</button>
+                <button
+                  onClick={clearSearch}
+                  aria-label="Fermer le résultat"
+                  style={{
+                    position: 'absolute', top: 8, right: 8,
+                    width: 30, height: 30, borderRadius: 999,
+                    border: '1px solid rgba(201,164,92,.5)',
+                    background: 'rgba(201,164,92,.08)', color: '#F4D9A4',
+                    fontSize: 18, lineHeight: 1, cursor: 'pointer',
+                  }}
+                >×</button>
+
+                <div style={{ fontFamily: 'Cinzel, serif', fontSize: 10, letterSpacing: '.34em', color: '#C9A45C', textTransform: 'uppercase' }}>
+                  Bienvenue
+                </div>
+                <div style={{ marginTop: 6, fontFamily: "'Great Vibes', cursive", fontSize: 40, color: '#F4D9A4', lineHeight: 1.1, wordBreak: 'break-word' }}>
+                  {guestName(g)}
                 </div>
 
-                <div style={{ marginTop: 8, display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 10 }}>
-                  <div style={{ minWidth: 0, flex: 1 }}>
-                    <div style={{ fontFamily: "'Great Vibes', cursive", fontSize: 28, color: '#F4D9A4', lineHeight: 1.1 }}>{nomComplet}</div>
-                    <div style={{ marginTop: 2, fontFamily: 'Cinzel, serif', fontSize: 19, fontWeight: 700, color: '#F6EFE2' }}>{t.nom}</div>
-                    <div style={{ marginTop: 2, fontSize: 12, color: 'rgba(246,239,226,.76)' }}>{maskedTel}</div>
-                  </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 12, margin: '14px auto 14px', width: 190, color: '#C9A45C' }}>
+                  <span style={{ flex: 1, height: 1, background: 'linear-gradient(90deg,transparent,#C9A45C)' }} />
+                  <span style={{ fontSize: 11 }}>✦</span>
+                  <span style={{ flex: 1, height: 1, background: 'linear-gradient(270deg,transparent,#C9A45C)' }} />
                 </div>
 
-                <div style={{ marginTop: 10, paddingTop: 10, borderTop: '1px solid rgba(201,164,92,.26)' }}>
-                  <div style={{ fontFamily: 'Cinzel, serif', fontSize: 10, letterSpacing: '.12em', color: '#E4C98A', textTransform: 'uppercase' }}>
-                    {autres.length > 0 ? 'À votre table' : 'Vous êtes seul à cette table'}
-                  </div>
-                  {autres.map((n, k) => (
-                    <div key={k} style={{ display: 'flex', alignItems: 'center', gap: 10, minHeight: 34, fontSize: 17, color: 'rgba(246,239,226,.92)' }}>
-                      <span style={{ color: '#C9A45C', fontSize: 9 }}>✦</span>{n}
-                    </div>
-                  ))}
+                <div style={{ fontFamily: 'Cinzel, serif', fontSize: 10, letterSpacing: '.34em', color: 'rgba(246,239,226,.72)', textTransform: 'uppercase' }}>
+                  Votre table
+                </div>
+                <div style={{ marginTop: 6, fontFamily: 'Cinzel, serif', fontSize: 28, fontWeight: 600, letterSpacing: '.1em', color: '#F6EFE2', textTransform: 'uppercase', textShadow: '0 2px 14px rgba(228,201,138,0.35)' }}>
+                  {t.nom}
                 </div>
               </div>
-            );
-          })}
+            </div>
+          ))}
         </div>
       )}
 
