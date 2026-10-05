@@ -43,9 +43,11 @@ export function Journee({ data, now }: Props) {
     <div style={{ position: 'relative', padding: '40px 20px 24px', animation: 'fadeUp .4s ease both' }}>
       <div aria-hidden style={{
         position: 'absolute', top: 0, left: 0, right: 0, pointerEvents: 'none',
-        aspectRatio: '1441 / 804',
+        height: 175,
         backgroundImage: 'url(domaine.jpg)',
-        backgroundSize: '100% 100%',
+        backgroundSize: 'cover',
+        WebkitMaskImage: 'linear-gradient(180deg, #000 70%, transparent 100%)',
+        maskImage: 'linear-gradient(180deg, #000 70%, transparent 100%)',
         backgroundPosition: 'center center',
         backgroundRepeat: 'no-repeat',
         opacity: 0.15,
