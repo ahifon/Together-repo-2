@@ -34,7 +34,7 @@ export function Hebergements() {
         <div style={{ fontFamily: 'Cinzel, serif', fontSize: 12, letterSpacing: '.32em', color: '#E4C98A' }}>À l'attention des invités</div>
         <h2 style={{ margin: '4px 0 0', fontFamily: "'Great Vibes', cursive", fontWeight: 400, fontSize: 52, color: '#E4C98A', lineHeight: 1.1 }}>Logements</h2>
         <div style={{ fontFamily: 'Cinzel, serif', fontSize: 11, letterSpacing: '.2em', color: 'rgba(246,239,226,.8)', textTransform: 'uppercase' }}>
-          à proximité du Domaine des Rois
+          à proximité de LA VENERIE
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: 12, margin: '12px auto 20px', color: '#C9A45C', width: 160 }}>
           <span style={{ flex: 1, height: 1, background: 'linear-gradient(90deg,transparent,#C9A45C)' }} />

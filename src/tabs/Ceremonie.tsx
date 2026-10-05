@@ -2,107 +2,119 @@ import type { Data } from '../types';
 
 interface Props {
   data: Data | null;
-  open: Record<number, boolean>;
-  setOpen: React.Dispatch<React.SetStateAction<Record<number, boolean>>>;
 }
 
-export function Ceremonie({ data, open, setOpen }: Props) {
-  if (!data) return null;
+const INK = '#0E3B2C';
+const GOLD = '#B08A3E';
+const WINE = '#8E2A23';
 
-  const toggle = (i: number) => {
-    setOpen(prev => ({ ...prev, [i]: !prev[i] }));
-  };
+function Ornament({ width = 170 }: { width?: number }) {
+  return (
+    <div style={{ display: 'flex', alignItems: 'center', gap: 12, margin: '14px auto', width, color: GOLD }}>
+      <span style={{ flex: 1, height: 1, background: `linear-gradient(90deg, transparent, ${GOLD})` }} />
+      <span style={{ fontSize: 12 }}>✦</span>
+      <span style={{ flex: 1, height: 1, background: `linear-gradient(270deg, transparent, ${GOLD})` }} />
+    </div>
+  );
+}
+
+export function Ceremonie({ data }: Props) {
+  if (!data) return null;
 
   return (
     <div style={{ padding: '28px 14px 24px', animation: 'fadeUp .4s ease both' }}>
-      {/* Booklet frame */}
       <div style={{
-        background: '#F5EBDD', color: '#0E3B2C',
-        border: '1px solid #B86C4F', padding: 4,
-        boxShadow: '0 10px 30px rgba(58,36,22,.28)',
+        background: 'linear-gradient(180deg, #F8F0E2 0%, #F2E6D2 100%)',
+        color: INK,
+        border: '1px solid #B86C4F',
+        borderRadius: 6,
+        padding: 5,
+        boxShadow: '0 18px 40px rgba(2,10,7,.45), 0 0 0 1px rgba(228,201,138,.25)',
       }}>
-        <div style={{ border: '1px solid rgba(201,164,92,.7)', padding: '28px 18px 20px' }}>
+        <div style={{ border: '1px solid rgba(176,138,62,.75)', borderRadius: 3, padding: '30px 20px 26px' }}>
           {/* Header */}
           <div style={{ textAlign: 'center' }}>
-            <div style={{ fontFamily: 'Cinzel, serif', fontSize: 12, letterSpacing: '.3em', color: '#8E4A39' }}></div>
-            <h2 style={{ margin: '4px 0 0', fontFamily: "'Great Vibes', cursive", fontWeight: 400, fontSize: 48, lineHeight: 1.1, color: '#0E3B2C' }}>Cérémonie Réligieuse</h2>
-            <div style={{ fontSize: 17, fontStyle: 'italic', color: '#3A2416' }}>Domaines des Rois · 14h00</div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 12, margin: '14px auto 8px', color: '#C9A45C', width: 160 }}>
-              <span style={{ flex: 1, height: 1, background: '#C9A45C' }} />
-              <span style={{ fontSize: 12 }}>✦</span>
-              <span style={{ flex: 1, height: 1, background: '#C9A45C' }} />
+            <div style={{ fontFamily: 'Cinzel, serif', fontSize: 11, letterSpacing: '.38em', color: WINE, textTransform: 'uppercase' }}>
+              Livret de cérémonie
+            </div>
+            <h2 style={{ margin: '6px 0 0', fontFamily: "'Great Vibes', cursive", fontWeight: 400, fontSize: 52, lineHeight: 1.05, color: INK }}>
+              Culte de mariage
+            </h2>
+            <div style={{ marginTop: 4, fontFamily: 'Cinzel, serif', fontSize: 12, letterSpacing: '.22em', color: '#3A2416', textTransform: 'uppercase' }}>
+              Vendredi 16 octobre 2026
+            </div>
+            <Ornament />
+            <div style={{ fontSize: 16, fontStyle: 'italic', color: '#5A4630' }}>
+              Durée prévue · environ 1 h 30
             </div>
           </div>
 
-          {/* Sections */}
-          {data.livret.map((sec, i) => {
-            const isOpen = !!open[i];
-            const [first = '', ...rest] = sec.texte;
-            const lead = first.match(/^[«"“\s]*\S/)?.[0] ?? '';
-            const lettrine = lead;
-            const premier = first.slice(lead.length);
+          {/* Steps */}
+          <ol style={{ listStyle: 'none', margin: '26px 0 0', padding: 0, position: 'relative' }}>
+            <div aria-hidden style={{
+              position: 'absolute', left: 17, top: 18, bottom: 18, width: 1,
+              background: `linear-gradient(180deg, transparent, ${GOLD} 4%, ${GOLD} 96%, transparent)`,
+            }} />
 
-            return (
-              <div key={i} style={{ borderBottom: '1px solid rgba(201,164,92,.55)' }}>
-                <button
-                  onClick={() => toggle(i)}
-                  style={{
-                    width: '100%', minHeight: 60,
-                    display: 'flex', alignItems: 'center', gap: 12,
-                    padding: '12px 2px', background: 'none', border: 0,
-                    textAlign: 'left', cursor: 'pointer', color: '#0E3B2C',
-                  }}
-                >
-                  <span style={{ width: 34, flex: 'none', fontFamily: 'Cinzel, serif', fontSize: 13, fontWeight: 600, color: '#8E2A23' }}>
-                    {i + 1}.
-                  </span>
-                  <span style={{ flex: 1 }}>
-                    <span style={{ display: 'block', fontFamily: 'Cinzel, serif', fontSize: 15, fontWeight: 600, letterSpacing: '.05em' }}>{sec.titre}</span>
-                    {sec.sous && <span style={{ display: 'block', fontSize: 16, fontStyle: 'italic', color: '#3A2416' }}>{sec.sous}</span>}
-                  </span>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8E2A23" strokeWidth="1.5"
-                    style={{ transform: isOpen ? 'rotate(180deg)' : 'none', transition: 'transform .25s' }}>
-                    <path d="m6 9 6 6 6-6" />
-                  </svg>
-                </button>
+            {data.livret.map((s, i) => (
+              <li key={i} style={{ position: 'relative', display: 'flex', gap: 14, paddingBottom: i === data.livret.length - 1 ? 0 : 22 }}>
+                <div style={{
+                  position: 'relative', zIndex: 1, flex: 'none',
+                  width: 36, height: 36, borderRadius: '50%',
+                  background: '#F8F0E2', border: `1px solid ${GOLD}`,
+                  boxShadow: '0 0 0 3px #F5EBDB',
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  fontFamily: 'Cinzel, serif', fontSize: 13, fontWeight: 600, color: WINE,
+                }}>
+                  {i + 1}
+                </div>
 
-                {isOpen && (
-                  <div style={{ padding: '0 2px 18px 42px', animation: 'fadeUp .3s ease both', fontSize: 18, lineHeight: 1.55 }}>
-                    {sec.lecteur && (
-                      <div style={{ fontFamily: 'Cinzel, serif', fontSize: 11, letterSpacing: '.1em', color: '#8E2A23', marginBottom: 8 }}>
-                        {sec.lecteur}
-                      </div>
-                    )}
-                    <p style={{ margin: 0 }}>
-                      <span style={{
-                        float: 'left',
-                        fontFamily: "'Great Vibes', cursive",
-                        fontSize: 58, lineHeight: .8,
-                        color: '#B08A3E',
-                        margin: '6px 6px 0 0',
-                      }}>{lettrine}</span>
-                      {premier}
-                    </p>
-                    {rest.map((p, j) => (
-                      <p key={j} style={{ margin: '10px 0 0' }}>{p}</p>
-                    ))}
-                    {sec.paroles && sec.paroles.length > 0 && (
-                      <div style={{ marginTop: 14, display: 'flex', flexDirection: 'column', gap: 12 }}>
-                        {sec.paroles.map((v, j) => (
-                          <div key={j} style={{ padding: '12px 14px', background: '#EFE5D2', borderTop: '1px solid #C9A45C' }}>
-                            <div style={{ fontFamily: 'Cinzel, serif', fontSize: 11, letterSpacing: '.18em', color: '#8E2A23', marginBottom: 4 }}>{v.type}</div>
-                            <div style={{ whiteSpace: 'pre-line', fontSize: 19, fontStyle: 'italic', lineHeight: 1.5 }}>{v.lignes}</div>
-                          </div>
-                        ))}
+                <div style={{ flex: 1, minWidth: 0, paddingTop: 2 }}>
+                  <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', gap: 10 }}>
+                    <div style={{ fontFamily: 'Cinzel, serif', fontSize: 16, fontWeight: 600, letterSpacing: '.04em', lineHeight: 1.3, color: INK }}>
+                      {s.titre}
+                    </div>
+                    {s.duree && (
+                      <div style={{
+                        flex: 'none', padding: '2px 9px', borderRadius: 999,
+                        border: '1px solid rgba(176,138,62,.6)', background: 'rgba(201,164,92,.12)',
+                        fontFamily: 'Cinzel, serif', fontSize: 10, letterSpacing: '.08em', color: '#7A5A22', whiteSpace: 'nowrap',
+                      }}>
+                        {s.duree}
                       </div>
                     )}
                   </div>
-                )}
-              </div>
-            );
-          })}
 
-          <div style={{ textAlign: 'center', marginTop: 22, color: '#C9A45C', fontSize: 14, letterSpacing: '.6em' }}>✦ ✦ ✦</div>
+                  {s.details && s.details.length > 0 && (
+                    <div style={{ marginTop: 6, display: 'flex', flexDirection: 'column', gap: 2 }}>
+                      {s.details.map((d, j) => (
+                        <div key={j} style={{ fontSize: 17, lineHeight: 1.45, color: '#2E2418' }}>{d}</div>
+                      ))}
+                    </div>
+                  )}
+
+                  {s.chants && s.chants.length > 0 && (
+                    <div style={{ marginTop: 8, display: 'flex', flexDirection: 'column', gap: 4 }}>
+                      {s.chants.map((c, j) => (
+                        <div key={j} style={{
+                          display: 'flex', alignItems: 'center', gap: 8,
+                          padding: '6px 10px', borderLeft: `2px solid ${GOLD}`,
+                          background: 'rgba(201,164,92,.1)',
+                          fontSize: 17, fontStyle: 'italic', color: WINE,
+                        }}>
+                          <span aria-hidden style={{ fontStyle: 'normal', fontSize: 13, color: GOLD }}>♪</span>
+                          {c}
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </li>
+            ))}
+          </ol>
+
+          <Ornament width={120} />
+          <div style={{ textAlign: 'center', color: GOLD, fontSize: 14, letterSpacing: '.6em' }}>✦ ✦ ✦</div>
         </div>
       </div>
 

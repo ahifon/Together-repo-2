@@ -31,7 +31,6 @@ export function WeddingApp({
   const [tab,   setTab]   = useState<Tab>(initialTab);
   const [query, setQuery] = useState(initialQuery);
   const [sel,   setSel]   = useState<string | null>(null);
-  const [open,  setOpen]  = useState<Record<number, boolean>>({ 0: true });
   const [, setTick] = useState(0);
   const scrollRef = useRef<HTMLDivElement>(null);
 
@@ -101,7 +100,7 @@ export function WeddingApp({
           <Journee data={data} now={now()} />
         )}
         {tab === 'ceremonie' && (
-          <Ceremonie data={data} open={open} setOpen={setOpen} />
+          <Ceremonie data={data} />
         )}
         {tab === 'plan' && (
           <PlanDeTable

@@ -112,7 +112,7 @@ export function Accueil({ data, now, goDay, goPlan, goBook }: Props) {
         <span style={{ flex: 1, height: 1, background: 'linear-gradient(270deg,transparent,#D4B467)' }} />
       </div>
       <div style={{ fontFamily: 'Cinzel, serif', fontSize: 13, letterSpacing: '.16em', color: '#F7F0E5' }}>
-        Vendredi 16 octobre 2026 · Nangis
+        Vendredi 16 octobre 2026 · Échouboulains
       </div>
 
       {/* Countdown / Today / After box */}

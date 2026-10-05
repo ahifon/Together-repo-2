@@ -5,18 +5,18 @@
       "Ezechiel"
     ],
     "date": "2026-10-16",
-    "dateTexte": "Vendredi 16 octobre 2026 · Nangis",
+    "dateTexte": "Vendredi 16 octobre 2026 · Échouboulains",
     "accueil": "Votre présence fera de ce moment une journée inoubliable.",
     "lieu": {
-      "nom": "Domaine des Rois",
-      "adresse": "77370 Nangis"
+      "nom": "LA VENERIE",
+      "adresse": "77830 Échouboulains"
     }
   },
   "programme": [
     {
       "heure": "14:00",
       "titre": "Cérémonie religieuse",
-      "lieu": "Domaine des Rois",
+      "lieu": "LA VENERIE",
       "description": "Merci d'arriver 15 minutes en avance pour vous installer.",
       "icone": "alliances"
     },
@@ -54,8 +54,8 @@
       "titre": "Cantique d’entrée",
       "sous": "",
       "texte": [
-        "Entrée de la chorale et allumage des bougies à l’autel.",
-        "Ordre d’entrée : Maître d’Autel → Chorale → Conducteur → Mariés → Parrain et Marraine → Fidèles → Hiérarchie."
+        "Entrée des mariés"
+       
       ]
     },
     {
