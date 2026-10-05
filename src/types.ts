@@ -24,17 +24,11 @@ export interface Step {
   icone: 'alliances' | 'photo' | 'flutes' | 'cloche' | 'musique';
 }
 
-export interface Parole {
-  type: string;
-  lignes: string;
-}
-
 export interface Section {
   titre: string;
-  sous: string;
-  lecteur?: string;
-  texte: string[];
-  paroles?: Parole[];
+  duree?: string;
+  details?: string[];
+  chants?: string[];
 }
 
 export interface Data {

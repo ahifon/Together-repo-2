@@ -28,8 +28,8 @@ const FALLBACK_WEDDING_DATA: Data = {
     dateTexte: 'Vendredi 16 octobre 2026 · Château des Fées',
     accueil: 'Votre présence fera de ce moment une journée inoubliable.',
     lieu: {
-      nom: 'Domaine des Rois',
-      adresse: '77370 Nangis',
+      nom: 'LA VENERIE',
+      adresse: '77830 Échouboulains',
     },
   },
   programme: [
@@ -69,28 +69,7 @@ const FALLBACK_WEDDING_DATA: Data = {
       icone: 'musique',
     },
   ],
-  livret: [
-    {
-      titre: 'Accueil',
-      sous: 'Bienvenue',
-      texte: ['Nous sommes ravis de vous accueillir pour ce jour unique.'],
-    },
-    {
-      titre: 'Première lecture',
-      sous: 'Mot de la famille',
-      texte: ['L’amour est le plus beau voyage que l’on fait ensemble.'],
-    },
-    {
-      titre: 'Échange des alliances',
-      sous: 'Le moment fort',
-      texte: ['Lina et Arthur s’échangent leurs alliances devant leurs proches.'],
-    },
-    {
-      titre: 'Merci',
-      sous: 'Un mot des mariés',
-      texte: ['Merci d’être là pour célébrer cette journée avec nous.'],
-    },
-  ],
+  livret: [],
   tables: [
     {
       id: 'honneur',

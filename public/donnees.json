@@ -5,18 +5,18 @@
       "Ezechiel"
     ],
     "date": "2026-10-16",
-    "dateTexte": "Vendredi 16 octobre 2026 · Nangis",
+    "dateTexte": "Vendredi 16 octobre 2026 · Échouboulains",
     "accueil": "Votre présence fera de ce moment une journée inoubliable.",
     "lieu": {
-      "nom": "Domaine des Rois",
-      "adresse": "77370 Nangis"
+      "nom": "LA VENERIE",
+      "adresse": "77830 Échouboulains"
     }
   },
   "programme": [
     {
       "heure": "14:00",
       "titre": "Cérémonie religieuse",
-      "lieu": "Domaine des Rois",
+      "lieu": "LA VENERIE",
       "description": "Merci d'arriver 15 minutes en avance pour vous installer.",
       "icone": "alliances"
     },
@@ -51,126 +51,94 @@
   ],
   "livret": [
     {
-      "titre": "Cantique d’entrée",
-      "sous": "",
-      "texte": [
-        "Entrée de la chorale et allumage des bougies à l’autel.",
-        "Ordre d’entrée : Maître d’Autel → Chorale → Conducteur → Mariés → Parrain et Marraine → Fidèles → Hiérarchie."
+      "titre": "Procession",
+      "duree": "15 min",
+      "details": [
+        "Entrée des DH & GH et témoins",
+        "Entrée du marié accompagné",
+        "Petite fille + la mariée accompagnée"
       ]
     },
     {
-      "titre": "Cantique à genoux et prières",
-      "sous": "",
-      "texte": [
-        "« YAH RAMAH ! YAH RAMAH ! » – Sonnerie de clochette – EYIBA (3 fois) – Psaume 51 – Psaume 24 – Gloria – Prière."
+      "titre": "Prière d’ouverture",
+      "duree": "30 s",
+      "details": [
+        "Conducteur"
+      ],
+      "chants": [
+        "Yara Sara – Yaraman"
       ]
     },
     {
-      "titre": "Chant",
-      "sous": "",
-      "texte": [
-        "L’assemblée se lève."
+      "titre": "Cloches",
+      "duree": "5 min",
+      "details": [
+        "Eyiba x 3 – Psaume 51 – Psaume 24",
+        "Prière de rémission des péchés – Notre Père"
+      ],
+      "chants": [
+        "1er cantique · 1 min 30"
       ]
     },
     {
-      "titre": "Prière de 3 personnes",
-      "sous": "",
-      "texte": [
-        "2 hommes et 1 femme, à genoux."
+      "titre": "Prière d’une personne",
+      "duree": "2 min",
+      "chants": [
+        "2ème cantique · 1 min 30"
       ]
     },
     {
-      "titre": "Chant",
-      "sous": "",
-      "texte": [
-        "Chant."
+      "titre": "Lecture",
+      "duree": "3 min",
+      "chants": [
+        "Gloria"
       ]
     },
     {
-      "titre": "Lecture biblique",
-      "sous": "Éphésiens 5, 15–33",
-      "texte": [
-        "Lecture suivie du Gloria."
-      ]
+      "titre": "Credo & prière du conducteur",
+      "duree": "1 min 30"
     },
     {
-      "titre": "Chant",
-      "sous": "",
-      "texte": [
-        "Chant."
-      ]
+      "titre": "Prédication",
+      "duree": "20 min"
     },
     {
-      "titre": "Annonces, prière, prédication",
-      "sous": "Courte prédication · Méditation",
-      "texte": [
-        "Annonces – Prière – Courte prédication – Méditation.",
-        "Prière après la prédication."
-      ]
-    },
-    {
-      "titre": "Consentement des époux",
-      "sous": "",
-      "texte": [
-        "Engagement réciproque et réponse « OUI »."
-      ]
+      "titre": "Discours d’un proche",
+      "duree": "5 min"
     },
     {
       "titre": "Échange des alliances",
-      "sous": "Bénédiction du mariage",
-      "texte": [
-        "Échange des alliances et bénédiction du mariage."
-      ]
+      "duree": "10 min"
     },
     {
       "titre": "Communion",
-      "sous": "",
-      "texte": [
-        "Communion."
+      "duree": "5 min",
+      "chants": [
+        "Dernier cantique · 1 min 30"
       ]
     },
     {
-      "titre": "Chant et quête",
-      "sous": "",
-      "texte": [
-        "Chant et quête.",
-        "Prière sur la quête et action de grâce."
+      "titre": "Dernière prière",
+      "duree": "2 min",
+      "details": [
+        "Notre Père – Gloria – Bénédiction – Alléluia 4 coins · 2 min 30"
       ]
     },
     {
-      "titre": "Dernière chanson",
-      "sous": "",
-      "texte": [
-        "Dernière chanson."
-      ]
+      "titre": "Signature des registres",
+      "duree": "2 min"
     },
     {
-      "titre": "Prière finale",
-      "sous": "",
-      "texte": [
-        "Par une devancière."
-      ]
+      "titre": "Réjouissances",
+      "duree": "10 min"
     },
     {
-      "titre": "Notre Père et bénédiction",
-      "sous": "",
-      "texte": [
-        "Notre Père – Bénédiction.",
-        "Alléluia 7 fois dans les quatre points cardinaux."
-      ]
-    },
-    {
-      "titre": "Signature du registre",
-      "sous": "Chant de sortie",
-      "texte": [
-        "Signature du registre de mariage – Chant de sortie."
-      ]
-    },
-    {
-      "titre": "Alléluia final",
-      "sous": "",
-      "texte": [
-        "Alléluia 7 fois dans les quatre points cardinaux."
+      "titre": "Procession de sortie",
+      "duree": "4 min",
+      "details": [
+        "Les mariés",
+        "Les témoins",
+        "Les DH & GH"
       ]
     }
   ],

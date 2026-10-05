@@ -239,9 +239,7 @@ export function PlanDeTable({ data, query, setQuery, sel, setSel }: Props) {
                         outline: '1px dotted rgba(228,201,138,.7)', outlineOffset: 5,
                         transition: 'all .25s',
                       }}>
-                        <span style={{ fontFamily: 'Cinzel, serif', fontSize: 11, fontWeight: 600, letterSpacing: '.04em', lineHeight: 1.2 }}>{t.nom}</span>
-                        <span style={{ fontSize: 12, fontStyle: 'italic' }}>{t.invites.length} pers.</span>
-                      </span>
+                        <span style={{ fontFamily: 'Cinzel, serif', fontSize: 11, fontWeight: 600, letterSpacing: '.04em', lineHeight: 1.2 }}>{t.nom}</span>                      </span>
                     )}
                   </div>
                 );
