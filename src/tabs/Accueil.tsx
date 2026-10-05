@@ -63,7 +63,7 @@ export function Accueil({ data, now, goDay, goPlan, goBook }: Props) {
     }}>
       {/* Background photo (transparent) */}
       <div aria-hidden style={{
-        position: 'absolute', top: 0, left: 0, right: 0, pointerEvents: 'none',
+        position: 'absolute', top: 0, left: '-16%', width: '116%', pointerEvents: 'none',
         aspectRatio: '1086 / 1448',
         backgroundImage: 'url(couple.jpg)',
         backgroundSize: '100% 100%',
