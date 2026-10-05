@@ -69,6 +69,7 @@ const FALLBACK_WEDDING_DATA: Data = {
       icone: 'musique',
     },
   ],
+  deroule: [],
   livret: [],
   tables: [
     {
