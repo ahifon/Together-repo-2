@@ -169,12 +169,6 @@ export function Accueil({ data, now, goDay, goPlan, goBook }: Props) {
       {/* Shortcut cards */}
       <div style={{ width: '100%', display: 'flex', flexDirection: 'column', gap: 12, marginTop: 20 }}>
         <ShortcutCard
-          icon={<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.3"><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="4" r="1.3"/><circle cx="12" cy="20" r="1.3"/><circle cx="4" cy="12" r="1.3"/><circle cx="20" cy="12" r="1.3"/></svg>}
-          title="Trouver ma table"
-          sub="Avec votre numéro de téléphone"
-          onClick={goPlan}
-        />
-        <ShortcutCard
           icon={<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7v5l3.5 2"/></svg>}
           title="Programme de la journée"
           sub="De la cérémonie à la soirée"
@@ -185,6 +179,12 @@ export function Accueil({ data, now, goDay, goPlan, goBook }: Props) {
           title="Livret de cérémonie"
           sub="Lectures, chants et paroles"
           onClick={goBook}
+        />
+        <ShortcutCard
+          icon={<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.3"><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="4" r="1.3"/><circle cx="12" cy="20" r="1.3"/><circle cx="4" cy="12" r="1.3"/><circle cx="20" cy="12" r="1.3"/></svg>}
+          title="Trouver ma table"
+          sub="Avec votre numéro de téléphone"
+          onClick={goPlan}
         />
       </div>
 
