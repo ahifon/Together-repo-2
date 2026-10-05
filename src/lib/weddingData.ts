@@ -158,16 +158,80 @@ const FALLBACK_WEDDING_DATA: Data = {
   ],
 };
 
-export async function loadWeddingData(): Promise<Data | null> {
+const SHEET_ID = '1J5izoIAZlEUYYj1UMljd77L4W1u2uNe2K1-WHuiKSac';
+const SHEET_CSV_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:csv&gid=0`;
+
+function parseCsv(text: string): string[][] {
+  const rows: string[][] = [];
+  let row: string[] = [];
+  let cell = '';
+  let quoted = false;
+  const src = text.replace(/^﻿/, '');
+
+  for (let i = 0; i < src.length; i++) {
+    const c = src[i];
+    if (quoted) {
+      if (c === '"' && src[i + 1] === '"') { cell += '"'; i++; }
+      else if (c === '"') quoted = false;
+      else cell += c;
+    } else if (c === '"') quoted = true;
+    else if (c === ',' || c === ';') { row.push(cell); cell = ''; }
+    else if (c === '\n' || c === '\r') {
+      if (c === '\r' && src[i + 1] === '\n') i++;
+      row.push(cell); cell = '';
+      rows.push(row); row = [];
+    } else cell += c;
+  }
+  if (cell !== '' || row.length) { row.push(cell); rows.push(row); }
+  return rows;
+}
+
+function cleanPhone(raw: string): string {
+  const digits = raw.replace(/\D/g, '');
+  return digits.length === 9 ? '0' + digits : digits;
+}
+
+async function loadTablesFromSheet(): Promise<Data['tables'] | null> {
   try {
-    const response = await fetch('/donnees.json', { cache: 'no-store' });
-    if (!response.ok) {
-      return normalizeTableData(FALLBACK_WEDDING_DATA);
+    const response = await fetch(SHEET_CSV_URL, { cache: 'no-store' });
+    if (!response.ok) return null;
+
+    const rows = parseCsv(await response.text());
+    const header = (rows.shift() ?? []).map(h => h.trim().toLowerCase());
+    const iTable = header.indexOf('table');
+    const iNom = header.indexOf('nom');
+    const iTel = header.indexOf('telephone');
+    if (iTable < 0 || iNom < 0) return null;
+
+    const byTable = new Map<string, Data['tables'][number]>();
+    for (const r of rows) {
+      const tableName = (r[iTable] ?? '').trim();
+      const nom = (r[iNom] ?? '').trim();
+      if (!tableName || !nom) continue;
+
+      let table = byTable.get(tableName);
+      if (!table) {
+        table = { id: tableName, nom: tableName, x: 0, y: 0, invites: [] };
+        byTable.set(tableName, table);
+      }
+      table.invites.push({ nom, telephone: iTel >= 0 ? cleanPhone(r[iTel] ?? '') : '' });
     }
 
-    const data = (await response.json()) as Data;
-    return normalizeTableData(data);
+    return byTable.size > 0 ? [...byTable.values()] : null;
   } catch {
-    return normalizeTableData(FALLBACK_WEDDING_DATA);
+    return null;
   }
+}
+
+export async function loadWeddingData(): Promise<Data | null> {
+  let data = FALLBACK_WEDDING_DATA;
+  try {
+    const response = await fetch('/donnees.json', { cache: 'no-store' });
+    if (response.ok) data = (await response.json()) as Data;
+  } catch {
+    // fallback data is used
+  }
+
+  const tables = await loadTablesFromSheet();
+  return normalizeTableData(tables ? { ...data, tables } : data);
 }

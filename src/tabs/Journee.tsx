@@ -40,8 +40,17 @@ export function Journee({ data, now }: Props) {
   });
 
   return (
-    <div style={{ padding: '40px 20px 24px', animation: 'fadeUp .4s ease both' }}>
-      <div style={{ textAlign: 'center' }}>
+    <div style={{ position: 'relative', padding: '40px 20px 24px', animation: 'fadeUp .4s ease both' }}>
+      <div aria-hidden style={{
+        position: 'absolute', top: 0, left: 0, right: 0, pointerEvents: 'none',
+        aspectRatio: '1441 / 804',
+        backgroundImage: 'url(domaine.jpg)',
+        backgroundSize: '100% 100%',
+        backgroundPosition: 'center center',
+        backgroundRepeat: 'no-repeat',
+        opacity: 0.15,
+      }} />
+      <div style={{ position: 'relative', textAlign: 'center' }}>
         <div style={{ fontFamily: 'Cinzel, serif', fontSize: 12, letterSpacing: '.32em', color: '#E4C98A' }}>Vendredi 16 octobre</div>
         <h2 style={{ margin: '4px 0 0', fontFamily: "'Great Vibes', cursive", fontWeight: 400, fontSize: 52, color: '#E4C98A', lineHeight: 1.1 }}>La journée</h2>
         <div style={{ display: 'flex', alignItems: 'center', gap: 12, margin: '10px auto 28px', color: '#C9A45C', width: 160 }}>
