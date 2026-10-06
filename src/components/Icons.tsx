@@ -101,3 +101,9 @@ export const IconBed = ({ color }: { color: string }) => (
     <circle cx="7" cy="11.5" r="1.8" />
   </svg>
 );
+
+export const IconContact = ({ color }: { color: string }) => (
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M5.5 3.5h3l1.5 4-2 1.5a11 11 0 0 0 7 7l1.5-2 4 1.5v3a2 2 0 0 1-2 2A16 16 0 0 1 3.5 5.5a2 2 0 0 1 2-2Z" />
+  </svg>
+);
