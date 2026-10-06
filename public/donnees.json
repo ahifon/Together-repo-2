@@ -49,6 +49,26 @@
       "icone": "musique"
     }
   ],
+  "contacts": [
+    {
+      "role": "Référent 1",
+      "nom": "Barthélémy",
+      "telephone": "0675748707",
+      "email": ""
+    },
+    {
+      "role": "Référent 2",
+      "nom": "Moise",
+      "telephone": "0616645054",
+      "email": ""
+    },   
+    {
+      "role": "Coordonnatrice",
+      "nom": "Rochelle",
+      "telephone": "0676698231",
+      "email": ""
+    }
+  ],
   "deroule": [
     {
       "titre": "Procession",

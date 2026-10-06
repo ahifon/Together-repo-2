@@ -1,4 +1,4 @@
-export type Tab = 'accueil' | 'journee' | 'ceremonie' | 'plan' | 'hebergements';
+export type Tab = 'accueil' | 'journee' | 'ceremonie' | 'plan' | 'hebergements' | 'contact';
 export type Sim = 'reel' | 'veille' | 'matin' | '14h30' | '17h30' | '21h';
 
 export interface Invite {
@@ -36,6 +36,14 @@ export interface Etape {
   texte?: string[];
 }
 
+export interface Contact {
+  role: string;
+  nom: string;
+  telephone?: string;
+  email?: string;
+  note?: string;
+}
+
 export interface Data {
   mariage: {
     maries: string[];
@@ -45,6 +53,7 @@ export interface Data {
     lieu: { nom: string; adresse: string };
   };
   programme: Step[];
+  contacts?: Contact[];
   deroule: Section[];
   livret: Etape[];
   tables: Table[];
