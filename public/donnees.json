@@ -84,7 +84,13 @@
         "Conducteur"
       ],
       "chants": [
-        "Yara Sara – Yaraman"
+        {
+          "label": "Chant d’ouverture",
+          "titre": "Yarrah Sarrah",
+          "couplets": [
+            "Yarrah sarrah\nYarrah samata\nAllumez les lampes\nSaintes des cieux\nAmen!"
+          ]
+        }
       ]
     },
     {
@@ -93,20 +99,116 @@
         "Récitation du Psaume 51 et Psaume 24"
       ],
       "chants": [
-        "1er cantique"
+        {
+          "label": "1er cantique",
+          "numero": "12",
+          "titre": "Œuvrons pour la sanctification",
+          "couplets": [
+            "Œuvrons pour la sanctification de l'âme\nPour le SEIGNEUR demeure en nous\nŒuvrons pour l'Eglise de JEHOVAH\nEn vue de la Sainte Demeure",
+            "Œuvrons pour la sanctification de l'âme\nAfin d'hériter des lieux célestes\nQue le SEIGNEUR veuille descendre parmi nous\nAfin que nous soyons sanctifiés",
+            "SAINT MICHEL viendra nous délivrer\nDu joug des princes de ce monde\nAfin que nous puissions triompher du diable\nEt travailler en toute espérance",
+            "Vanité pour l'homme de livrer son corps\nAux richesses matérielles de ce monde\nMieux vaut que nous fassions l'œuvre de DIEU\nQue le CHRIST nous a confié",
+            "Ce qui nous permettra d'avoir la couronne\nDont la promesse nous a été faite\nAmen!"
+          ]
+        }
       ]
     },
     {
       "titre": "Prière d’une personne",
       "chants": [
-        "2ème cantique"
+        {
+          "label": "2ème cantique",
+          "titre": "Nous les disciples de Jésus",
+          "couplets": [
+            "Nous les disciples de JESUS soyons unis\nUnis de pieds fermes restons en prière\nBeaucoup d'années dans le passé ont montré\nLa véracité de ses bonnes œuvres",
+            "O SAINT ESPRIT (3X)\nDescends parmi nous\nAmen!"
+          ]
+        }
       ]
     },
     {
       "titre": "Lecture",
-      "details": [
-        "Éphésiens 5, 15–33"
-      ],
+      "lecture": {
+        "reference": "Éphésiens 5, 15–33",
+        "versets": [
+          {
+            "n": 15,
+            "t": "Veillez donc avec soin à votre manière de vivre. Ne vous comportez pas comme des insensés, mais comme des gens sensés."
+          },
+          {
+            "n": 16,
+            "t": "Mettez à profit les occasions qui se présentent à vous, car nous vivons des jours mauvais."
+          },
+          {
+            "n": 17,
+            "t": "C’est pourquoi ne soyez pas déraisonnables, mais comprenez ce que le Seigneur attend de vous."
+          },
+          {
+            "n": 18,
+            "t": "Ne vous enivrez pas de vin – cela vous conduirait à une vie de désordre – mais soyez remplis de l’Esprit:"
+          },
+          {
+            "n": 19,
+            "t": "ainsi vous vous entretiendrez par le chant de psaumes, d’hymnes et de cantiques inspirés par l’Esprit, vous louerez le Seigneur de tout votre cœur par vos chants et vos psaumes;"
+          },
+          {
+            "n": 20,
+            "t": "à tout moment et pour toute chose, vous remercierez Dieu le Père au nom de notre Seigneur Jésus-Christ,"
+          },
+          {
+            "n": 21,
+            "t": "et parce que vous avez la crainte de Christ, vous vous soumettrez les uns aux autres,"
+          },
+          {
+            "n": 22,
+            "t": "vous femmes, en particulier, chacune à son mari, et cela par égard pour le Seigneur."
+          },
+          {
+            "n": 23,
+            "t": "Le mari, en effet, est le chef de sa femme comme Christ est la tête, le chef de l’Eglise qui est son corps et dont il est le Sauveur."
+          },
+          {
+            "n": 24,
+            "t": "Mais comme l’Eglise se soumet à Christ, qu’ainsi aussi la femme se soumette en toute circonstance à son mari."
+          },
+          {
+            "n": 25,
+            "t": "Quant à vous, maris, que chacun de vous aime sa femme comme Christ a aimé l’Eglise: il a donné sa vie pour elle"
+          },
+          {
+            "n": 26,
+            "t": "afin de la rendre digne de se tenir devant Dieu après l’avoir purifiée par sa Parole, comme par le bain nuptial."
+          },
+          {
+            "n": 27,
+            "t": "Il a ainsi voulu se présenter cette Eglise à lui-même, rayonnante de beauté, sans tache, ni ride, ni aucun défaut, mais digne de se tenir devant Dieu et irréprochable."
+          },
+          {
+            "n": 28,
+            "t": "Voilà comment chaque mari doit aimer sa femme comme si elle était son propre corps: ainsi celui qui aime sa femme s’aime lui-même."
+          },
+          {
+            "n": 29,
+            "t": "Car personne n’a jamais haï sa propre chair; au contraire, chacun la nourrit et l’entoure de soins, comme Christ le fait pour l’Eglise,"
+          },
+          {
+            "n": 30,
+            "t": "parce que nous sommes les membres de son corps."
+          },
+          {
+            "n": 31,
+            "t": "C’est pourquoi l’homme laissera son père et sa mère pour s’attacher à sa femme et les deux ne feront plus qu’un."
+          },
+          {
+            "n": 32,
+            "t": "Il y a là un grand mystère: je parle de ce que je viens de dire au sujet de Christ et de l’Eglise."
+          },
+          {
+            "n": 33,
+            "t": "Quant à vous, que chaque mari aime sa femme comme lui-même, et que chaque femme témoigne un profond respect à son mari."
+          }
+        ]
+      },
       "chants": [
         "Gloria"
       ]
@@ -126,7 +228,18 @@
     {
       "titre": "Communion",
       "chants": [
-        "Dernier cantique"
+        {
+          "label": "Dernier cantique",
+          "titre": "El Beraca Bered Eli",
+          "couplets": [
+            "El Beraca Bered Eli\nEl Beraca Bered Eli\nO mon Dieu",
+            "Roi généreux de la moisson\nOuvre sur nous les écluses du ciel en ce grand jour",
+            "Jéhovah Elyon ô Dieu puissant\nDont la gloire est immense\nViens nous rehausser avec ta gloire immortelle\nTes enfants comblés en ce jour de réjouissance",
+            "El Morijah ô Dieu qui sait pourvoir aux siens\nNous t’implorons pour nous combler toute notre vie\nAfin que nos soucis se transforment en joie\nDe même que notre opprobre devienne une gloire",
+            "Et vous les saints anges du ciel chantez ce cantique\nPour que nous emportions chez nous de bonnes choses\nO Christ souverain du ciel, accepte ce cantique",
+            "Amen, amen, amen, amen, amen, amen, amen (ter)\nAmen!"
+          ]
+        }
       ]
     },
     {
