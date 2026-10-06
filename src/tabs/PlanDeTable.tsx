@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import type { Data, Table } from '../types';
 import { IconPhone } from '../components/Icons';
 
@@ -9,16 +10,25 @@ interface Props {
   setSel: (id: string | null) => void;
 }
 
-/** Normalise un numéro : garde uniquement les chiffres, gère +33 */
-function telN(s: string): string {
-  let x = String(s || '').replace(/\D/g, '');
-  if (x.startsWith('0033')) x = '0' + x.slice(4);
-  else if (x.startsWith('33') && x.length === 11) x = '0' + x.slice(2);
-  return x;
+const MIN_DIGITS = 8;
+const MAX_DIGITS = 15;
+
+/** Forme comparable d'un numéro : chiffres seuls, indicatif pays inclus quand il est connu */
+function canon(raw: string): string {
+  const trimmed = String(raw || '').trim();
+  const d = trimmed.replace(/\D/g, '');
+  if (trimmed.startsWith('+')) return d;
+  if (d.startsWith('00')) return d.slice(2);
+  if (d.length === 10 && d.startsWith('0')) return '33' + d.slice(1);
+  return d;
 }
 
-function guestTel(g: Table['invites'][number]): string {
-  return telN(g.telephone || '');
+/** Même numéro, avec ou sans indicatif pays (+33, +229, 00225…) */
+function samePhone(a: string, b: string): boolean {
+  const ca = canon(a);
+  const cb = canon(b);
+  if (ca.length < MIN_DIGITS || cb.length < MIN_DIGITS) return false;
+  return ca === cb || ca.slice(-MIN_DIGITS) === cb.slice(-MIN_DIGITS);
 }
 
 function guestName(g: Table['invites'][number]): string {
@@ -26,10 +36,18 @@ function guestName(g: Table['invites'][number]): string {
 }
 
 export function PlanDeTable({ data, query, setQuery, sel, setSel }: Props) {
+  const [settled, setSettled] = useState(false);
+
+  useEffect(() => {
+    setSettled(false);
+    const timer = setTimeout(() => setSettled(true), 1100);
+    return () => clearTimeout(timer);
+  }, [query]);
+
   if (!data) return null;
 
-  const qd = telN(query);
-  const active = qd.length >= 10;
+  const qd = query.replace(/\D/g, '');
+  const active = qd.length >= MIN_DIGITS;
   const typing = qd.length > 0 && !active;
 
   // Search results
@@ -38,7 +56,7 @@ export function PlanDeTable({ data, query, setQuery, sel, setSel }: Props) {
   if (active) {
     data.tables.forEach(t => {
       t.invites.forEach(g => {
-        if (guestTel(g) === qd && results.length < 4) results.push({ t, g });
+        if (samePhone(g.telephone || '', query) && results.length < 4) results.push({ t, g });
       });
     });
   }
@@ -47,7 +65,7 @@ export function PlanDeTable({ data, query, setQuery, sel, setSel }: Props) {
   const handleQuery = (e: React.ChangeEvent<HTMLInputElement>) => {
     const v = e.target.value;
     const plus = v.trim().startsWith('+');
-    const dg = v.replace(/\D/g, '').slice(0, plus ? 11 : 10);
+    const dg = v.replace(/\D/g, '').slice(0, MAX_DIGITS);
     setQuery((plus ? '+' : '') + dg.replace(/(\d{2})(?=\d)/g, '$1 '));
   };
 
@@ -104,7 +122,7 @@ export function PlanDeTable({ data, query, setQuery, sel, setSel }: Props) {
           inputMode="tel"
           value={query}
           onChange={handleQuery}
-          placeholder="06 12 34 56 78"
+          placeholder="06 12 34 56 78 · +229 …"
           autoComplete="tel"
           style={{
             flex: 1, minWidth: 0, height: '100%',
@@ -182,12 +200,12 @@ export function PlanDeTable({ data, query, setQuery, sel, setSel }: Props) {
       {/* Typing indicator */}
       {typing && (
         <div style={{ marginTop: 10, textAlign: 'center', fontFamily: 'Cinzel, serif', fontSize: 12, letterSpacing: '.14em', color: '#C9A45C' }}>
-          Encore {10 - qd.length} chiffre{10 - qd.length > 1 ? 's' : ''}
+          Saisissez votre numéro complet, avec l'indicatif si vous êtes à l'étranger
         </div>
       )}
 
       {/* Not found */}
-      {active && results.length === 0 && (
+      {active && settled && results.length === 0 && (
         <div style={{ marginTop: 14, padding: 16, textAlign: 'center', border: '1px dashed rgba(201,164,92,.6)', fontSize: 17 }}>
           Ce numéro ne figure pas sur la liste. Vérifiez-le ou adressez-vous à l'accueil.
         </div>
