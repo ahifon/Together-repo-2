@@ -89,21 +89,49 @@
         .desk-photo {
           position: absolute; inset: 28px 0 28px 28px;
           background: url(couple-desktop.jpg) center top / contain no-repeat;
-          -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 9%, #000 91%, transparent 100%);
-          mask-image: linear-gradient(90deg, transparent 0, #000 9%, #000 91%, transparent 100%);
-          animation: fadeUp .9s ease both;
+          transform-origin: 50% 28%;
+          filter: contrast(1.07) brightness(1.04) sepia(.16) saturate(.9);
+          -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 13%, #000 87%, transparent 100%), linear-gradient(180deg, transparent 0, #000 7%, #000 100%);
+          -webkit-mask-composite: source-in;
+          mask-image: linear-gradient(90deg, transparent 0, #000 13%, #000 87%, transparent 100%), linear-gradient(180deg, transparent 0, #000 7%, #000 100%);
+          mask-composite: intersect;
+          animation: fadeUp .9s ease both, deskDrift 32s ease-in-out 1s infinite alternate;
         }
+        @keyframes deskDrift { from { transform: scale(1); } to { transform: scale(1.045); } }
         .desk-aside::before {
           content: ''; position: absolute; inset: 0; z-index: 1;
           background:
-            linear-gradient(0deg, rgba(5,22,17,.96) 0%, rgba(5,22,17,.72) 34%, rgba(5,22,17,.1) 66%, rgba(5,22,17,.25) 100%),
-            linear-gradient(90deg, rgba(6,36,27,.28), rgba(6,36,27,0) 60%);
+            linear-gradient(0deg, rgba(5,22,17,.97) 0%, rgba(5,22,17,.74) 34%, rgba(5,22,17,.08) 66%, rgba(5,22,17,.22) 100%),
+            radial-gradient(ellipse 70% 55% at 52% 30%, rgba(228,201,138,.17), transparent 70%),
+            radial-gradient(ellipse at 50% 38%, transparent 45%, rgba(4,18,14,.5) 100%);
         }
         .desk-aside::after {
           content: ''; position: absolute; z-index: 2; inset: 28px 0 28px 28px;
           border: 1px solid rgba(228,201,138,.35); border-right: 0;
           pointer-events: none;
         }
+        .desk-sparkles, .desk-sheen {
+          position: absolute; z-index: 2; pointer-events: none; overflow: hidden;
+          top: 28px; height: calc(100% - 56px); aspect-ratio: 1086 / 1448; max-width: calc(100% - 28px);
+          left: calc(50% + 14px); transform: translateX(-50%);
+          -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 13%, #000 87%, transparent 100%), linear-gradient(180deg, transparent 0, #000 7%, #000 62%, transparent 92%);
+          -webkit-mask-composite: source-in;
+          mask-image: linear-gradient(90deg, transparent 0, #000 13%, #000 87%, transparent 100%), linear-gradient(180deg, transparent 0, #000 7%, #000 62%, transparent 92%);
+          mask-composite: intersect;
+        }
+        .desk-sparkles span { position: absolute; display: block; opacity: 0; animation-name: twinkle; animation-iteration-count: infinite; animation-timing-function: ease-in-out; }
+        .desk-sparkles .dot {
+          border-radius: 50%; background: #FBEBC4;
+          box-shadow: 0 0 8px 2px rgba(244,217,164,.75), 0 0 20px 5px rgba(228,201,138,.35);
+        }
+        .desk-sparkles .star { line-height: 1; color: #FFF3D2; text-shadow: 0 0 10px rgba(244,217,164,.95), 0 0 22px rgba(228,201,138,.6); }
+        .desk-sheen::before {
+          content: ''; position: absolute; top: -10%; bottom: -10%; width: 26%;
+          background: linear-gradient(90deg, transparent, rgba(255,243,210,.13), transparent);
+          transform: translateX(-130%) skewX(-18deg);
+          animation: deskSheen 8s ease-in-out 1.2s infinite;
+        }
+        @keyframes deskSheen { 0% { transform: translateX(-130%) skewX(-18deg); } 55%, 100% { transform: translateX(420%) skewX(-18deg); } }
         .desk-content {
           position: absolute; z-index: 3; left: 0; right: 0; bottom: 0;
           padding: 0 72px 76px 76px;
