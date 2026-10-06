@@ -24,10 +24,28 @@ export interface Step {
   icone: 'alliances' | 'photo' | 'flutes' | 'cloche' | 'musique';
 }
 
+export interface Chant {
+  label?: string;
+  numero?: string;
+  titre: string;
+  couplets?: string[];
+}
+
+export interface Verset {
+  n: number;
+  t: string;
+}
+
+export interface Lecture {
+  reference: string;
+  versets: Verset[];
+}
+
 export interface Section {
   titre: string;
   details?: string[];
-  chants?: string[];
+  lecture?: Lecture;
+  chants?: (string | Chant)[];
 }
 
 export interface Etape {

@@ -1,5 +1,18 @@
 import type { Data } from '../types';
 
+// Ordre d'affichage des tables sur le plan (les tables absentes de cette liste suivent, dans l'ordre de la feuille)
+const PLAN_ORDER = [
+  'Porto-Novo', 'Marcory', 'Yopougon', 'Cotonou',
+  'Cocody', 'Treichville', 'Kpalimé', 'Lomé',
+  'Enfants', 'Aného', 'Artistes', 'Fidjrossè',
+  'Calavi', 'Grand-Popo', 'Kara', 'Sans ville',
+];
+
+function planRank(name: string, fallback: number): number {
+  const i = PLAN_ORDER.indexOf(name);
+  return i >= 0 ? i : PLAN_ORDER.length + fallback;
+}
+
 function normalizeTableData(data: Data): Data {
   if (!data?.tables) {
     return data;
@@ -17,7 +30,9 @@ function normalizeTableData(data: Data): Data {
         id: normalizedName,
         nom: normalizedName,
       };
-    }),
+    }).map((table, index) => ({ table, index }))
+      .sort((a, b) => planRank(a.table.nom, a.index) - planRank(b.table.nom, b.index))
+      .map(({ table }) => table),
   };
 }
 

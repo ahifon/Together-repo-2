@@ -1,4 +1,5 @@
-import type { Data } from '../types';
+import { useState } from 'react';
+import type { Chant, Data, Lecture as LectureData } from '../types';
 
 interface Props {
   data: Data | null;
@@ -15,6 +16,154 @@ function Ornament({ width = 170 }: { width?: number }) {
       <span style={{ fontSize: 12 }}>✦</span>
       <span style={{ flex: 1, height: 1, background: `linear-gradient(270deg, transparent, ${GOLD})` }} />
     </div>
+  );
+}
+
+const GOLD_LIGHT = '#E4C98A';
+
+function Depliant({ icon, label, titre, children }: {
+  icon: React.ReactNode;
+  label: string;
+  titre: string;
+  children: (open: boolean) => React.ReactNode;
+}) {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <div style={{
+      borderRadius: 14, overflow: 'hidden',
+      border: `1px solid ${open ? GOLD : 'rgba(176,138,62,.55)'}`,
+      boxShadow: open ? '0 14px 30px rgba(14,59,44,.28)' : 'none',
+      transition: 'box-shadow .4s, border-color .4s',
+    }}>
+      <button
+        type="button"
+        aria-expanded={open}
+        onClick={() => setOpen(o => !o)}
+        style={{
+          width: '100%', display: 'flex', alignItems: 'center', gap: 12,
+          padding: '11px 12px', border: 0, textAlign: 'left', cursor: 'pointer', color: INK,
+          background: 'linear-gradient(135deg, rgba(201,164,92,.2), rgba(201,164,92,.06))',
+        }}
+      >
+        <span aria-hidden style={{
+          flex: 'none', width: 36, height: 36, borderRadius: '50%',
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+          background: INK, color: GOLD_LIGHT, fontSize: 15,
+          border: `1px solid ${GOLD}`, boxShadow: '0 0 0 3px rgba(201,164,92,.18)',
+        }}>{icon}</span>
+        <span style={{ flex: 1, minWidth: 0 }}>
+          <span style={{ display: 'block', fontFamily: 'Cinzel, serif', fontSize: 9, letterSpacing: '.28em', color: WINE, textTransform: 'uppercase' }}>
+            {label}
+          </span>
+          <span style={{ display: 'block', marginTop: 2, fontFamily: 'Cinzel, serif', fontSize: 14, fontWeight: 600, letterSpacing: '.05em', lineHeight: 1.3, color: INK, textTransform: 'uppercase' }}>
+            {titre}
+          </span>
+        </span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={WINE} strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"
+          style={{ flex: 'none', transform: open ? 'rotate(180deg)' : 'none', transition: 'transform .35s' }}>
+          <path d="m6 9 6 6 6-6" />
+        </svg>
+      </button>
+
+      <div aria-hidden={!open} style={{ display: 'grid', gridTemplateRows: open ? '1fr' : '0fr', transition: 'grid-template-rows .5s ease' }}>
+        <div style={{ overflow: 'hidden', minHeight: 0 }}>
+          <div style={{
+            position: 'relative', padding: '24px 10px 26px', textAlign: 'center', color: '#F6EFE2',
+            background: 'radial-gradient(ellipse at 50% 0%, rgba(228,201,138,.16), transparent 60%), linear-gradient(180deg, #0E3B2C 0%, #0A2A1F 100%)',
+            borderTop: `1px solid ${GOLD}`,
+          }}>
+            <div aria-hidden style={{ position: 'absolute', inset: 6, border: '1px solid rgba(228,201,138,.25)', borderRadius: 10, pointerEvents: 'none' }} />
+            {children(open)}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function PanelHeader({ kicker, titre, open }: { kicker: string; titre: string; open: boolean }) {
+  return (
+    <div style={{ position: 'relative', animation: open ? 'fadeUp .6s ease both' : 'none' }}>
+      <div style={{ fontFamily: 'Cinzel, serif', fontSize: 10, letterSpacing: '.34em', color: GOLD, textTransform: 'uppercase' }}>
+        {kicker}
+      </div>
+      <div style={{
+        marginTop: 4, fontFamily: "'Great Vibes', cursive", fontSize: 36, lineHeight: 1.1,
+        background: 'linear-gradient(180deg, #FFF3D2, #E4C98A 55%, #B98A42)',
+        WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent',
+      }}>
+        {titre}
+      </div>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 12, margin: '12px auto 4px', width: 150, color: GOLD }}>
+        <span style={{ flex: 1, height: 1, background: `linear-gradient(90deg, transparent, ${GOLD})` }} />
+        <span style={{ fontSize: 11 }}>✦</span>
+        <span style={{ flex: 1, height: 1, background: `linear-gradient(270deg, transparent, ${GOLD})` }} />
+      </div>
+    </div>
+  );
+}
+
+function Cantique({ c }: { c: Chant }) {
+  return (
+    <Depliant icon="♪" label={`${c.label ?? 'Cantique'}${c.numero ? ` · n° ${c.numero}` : ''}`} titre={c.titre}>
+      {(open) => (
+        <>
+          <PanelHeader kicker={`Cantique${c.numero ? ` n° ${c.numero}` : ''}`} titre={c.titre} open={open} />
+
+          {c.couplets?.map((v, i) => (
+            <div key={i} style={{ position: 'relative', animation: open ? `fadeUp .6s ease ${0.12 + i * 0.1}s both` : 'none' }}>
+              {i > 0 && <div aria-hidden style={{ margin: '16px 0 14px', color: GOLD, fontSize: 10, letterSpacing: '.6em' }}>✦</div>}
+              <div style={{ marginTop: i === 0 ? 14 : 0 }}>
+                {v.split('\n').map((line, j) => {
+                  const amen = /^amen\s*!?$/i.test(line);
+                  return (
+                    <div key={j} style={amen
+                      ? { marginTop: 8, fontFamily: 'Cinzel, serif', fontSize: 16, fontWeight: 600, letterSpacing: '.3em', textTransform: 'uppercase', color: GOLD_LIGHT }
+                      : { fontSize: 17, fontStyle: 'italic', lineHeight: 1.6, color: 'rgba(246,239,226,.94)' }}
+                    >{line}</div>
+                  );
+                })}
+              </div>
+            </div>
+          ))}
+        </>
+      )}
+    </Depliant>
+  );
+}
+
+const BookIcon = () => (
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={GOLD_LIGHT} strokeWidth="1.5" strokeLinejoin="round">
+    <path d="M12 6.5C10 5 7 4.5 3.5 5v13c3.5-.5 6.5 0 8.5 1.5 2-1.5 5-2 8.5-1.5V5C17 4.5 14 5 12 6.5Z" />
+    <path d="M12 6.5v13" />
+  </svg>
+);
+
+function Lecture({ l }: { l: LectureData }) {
+  return (
+    <Depliant icon={<BookIcon />} label="Lecture biblique" titre={l.reference}>
+      {(open) => (
+        <>
+          <PanelHeader kicker="Lecture biblique" titre={l.reference} open={open} />
+
+          <p style={{
+            position: 'relative', margin: '14px 6px 0', padding: '0 4px', textAlign: 'left',
+            fontSize: 18, lineHeight: 1.7, color: 'rgba(246,239,226,.94)',
+            animation: open ? 'fadeUp .7s ease .15s both' : 'none',
+          }}>
+            {l.versets.map(v => (
+              <span key={v.n}>
+                <sup style={{ marginRight: 3, fontFamily: 'Cinzel, serif', fontSize: 10, fontWeight: 600, color: GOLD_LIGHT }}>{v.n}</sup>
+                {v.t}{' '}
+              </span>
+            ))}
+          </p>
+
+          <div aria-hidden style={{ position: 'relative', marginTop: 18, color: GOLD, fontSize: 10, letterSpacing: '.6em' }}>✦</div>
+        </>
+      )}
+    </Depliant>
   );
 }
 
@@ -81,9 +230,17 @@ export function Ceremonie({ data }: Props) {
                     </div>
                   )}
 
+                  {s.lecture && (
+                    <div style={{ marginTop: 8 }}>
+                      <Lecture l={s.lecture} />
+                    </div>
+                  )}
+
                   {s.chants && s.chants.length > 0 && (
                     <div style={{ marginTop: 8, display: 'flex', flexDirection: 'column', gap: 4 }}>
-                      {s.chants.map((c, j) => (
+                      {s.chants.map((c, j) => typeof c !== 'string' ? (
+                        <Cantique key={j} c={c} />
+                      ) : (
                         <div key={j} style={{
                           display: 'flex', alignItems: 'center', gap: 8,
                           padding: '6px 10px', borderLeft: `2px solid ${GOLD}`,
