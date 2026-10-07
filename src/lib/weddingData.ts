@@ -218,6 +218,41 @@ async function loadTablesFromSheet(): Promise<Data['tables'] | null> {
   }
 }
 
+const LAYOUT_SHEET = 'Plan';
+const LAYOUT_CSV_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:csv&sheet=${encodeURIComponent(LAYOUT_SHEET)}`;
+
+function plain(text: string): string {
+  return String(text || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').trim().toLowerCase();
+}
+
+type Layout = Map<string, { ligne: number; colonne: number }>;
+
+async function loadLayoutFromSheet(): Promise<Layout | null> {
+  try {
+    const response = await fetch(LAYOUT_CSV_URL, { cache: 'no-store' });
+    if (!response.ok) return null;
+
+    const rows = parseCsv(await response.text());
+    const header = (rows.shift() ?? []).map(plain);
+    const iTable = header.indexOf('table');
+    const iLigne = header.indexOf('ligne');
+    const iColonne = header.indexOf('colonne');
+    if (iTable < 0 || iLigne < 0 || iColonne < 0) return null;
+
+    const layout: Layout = new Map();
+    for (const r of rows) {
+      const name = plain(r[iTable] ?? '');
+      const ligne = parseFloat(String(r[iLigne] ?? '').replace(',', '.'));
+      const colonne = parseFloat(String(r[iColonne] ?? '').replace(',', '.'));
+      if (!name || !Number.isFinite(ligne) || !Number.isFinite(colonne) || ligne < 1 || colonne < 1) continue;
+      layout.set(name, { ligne, colonne });
+    }
+    return layout.size > 0 ? layout : null;
+  } catch {
+    return null;
+  }
+}
+
 export async function loadWeddingData(): Promise<Data | null> {
   let data = FALLBACK_WEDDING_DATA;
   try {
@@ -227,6 +262,15 @@ export async function loadWeddingData(): Promise<Data | null> {
     // fallback data is used
   }
 
-  const tables = await loadTablesFromSheet();
-  return normalizeTableData(tables ? { ...data, tables } : data);
+  const [sheetTables, layout] = await Promise.all([loadTablesFromSheet(), loadLayoutFromSheet()]);
+  const withTables: Data = sheetTables ? { ...data, tables: sheetTables } : data;
+  if (!layout) return normalizeTableData(withTables);
+
+  return normalizeTableData({
+    ...withTables,
+    tables: withTables.tables.map(t => {
+      const place = layout.get(plain(t.nom));
+      return place ? { ...t, ...place } : t;
+    }),
+  });
 }

@@ -73,7 +73,30 @@ export function PlanDeTable({ data, query, setQuery, sel, setSel }: Props) {
     setQuery('');
   };
 
+  const ROW_H = 84;
+  const placedTables = data.tables.filter(t => t.ligne && t.colonne);
+  const placed = placedTables.length > 0;
+  const gridCols = placed ? Math.max(2, Math.ceil(Math.max(...placedTables.map(t => t.colonne as number)))) : 0;
+  const lastPlacedRow = placed ? Math.ceil(Math.max(...placedTables.map(t => t.ligne as number))) : 0;
+  let extra = 0;
+
   const displayTables = data.tables.map((table, index) => {
+    if (placed) {
+      let ligne = table.ligne;
+      let colonne = table.colonne;
+      if (!ligne || !colonne) {
+        ligne = lastPlacedRow + 1 + Math.floor(extra / gridCols);
+        colonne = (extra % gridCols) + 1;
+        extra++;
+      }
+      return {
+        ...table,
+        ligne,
+        displayX: 16 + (colonne - 1) * (68 / Math.max(gridCols - 1, 1)),
+        displayTop: `${52 + (ligne - 1) * ROW_H}px`,
+      };
+    }
+
     const hasCustomPosition = Number.isFinite(table.x) && Number.isFinite(table.y) && !(table.x === 0 && table.y === 0);
     const columns = Math.min(4, Math.max(2, Math.ceil(Math.sqrt(Math.max(data.tables.length, 1)))));
     const row = Math.floor(index / columns);
@@ -82,9 +105,12 @@ export function PlanDeTable({ data, query, setQuery, sel, setSel }: Props) {
     return {
       ...table,
       displayX: hasCustomPosition ? table.x : (table.honneur ? 50 : 16 + col * (68 / Math.max(columns - 1, 1))),
-      displayY: hasCustomPosition ? table.y : (table.honneur ? 14 : 18 + row * 18),
+      displayTop: (hasCustomPosition ? table.y : (table.honneur ? 14 : 18 + row * 18)) + '%',
     };
   });
+
+  const lastRow = placed ? Math.max(...displayTables.map(t => (t as { ligne?: number }).ligne ?? 1)) : 0;
+  const canvasHeight = placed ? Math.max(440, 52 + (Math.ceil(lastRow) - 1) * ROW_H + 100) : 440;
 
   return (
     <div style={{ padding: '36px 16px 24px', animation: 'fadeUp .4s ease both' }}>
@@ -213,7 +239,7 @@ export function PlanDeTable({ data, query, setQuery, sel, setSel }: Props) {
 
       {/* Plan view */}
       <div style={{ marginTop: 22, border: '1px solid rgba(201,164,92,0.7)', padding: 5, background: 'linear-gradient(180deg, rgba(10,42,31,0.95), rgba(8,20,18,0.98))', borderRadius: 16, boxShadow: '0 18px 36px rgba(0,0,0,0.2)' }}>
-            <div style={{ position: 'relative', height: 440, border: '1px solid rgba(201,164,92,.4)', background: 'radial-gradient(ellipse at 50% 30%, rgba(24,80,63,1), rgba(10,42,31,0.96) 45%, rgba(7,21,17,1) 100%)', overflow: 'hidden', borderRadius: 12 }}>
+            <div style={{ position: 'relative', height: canvasHeight, border: '1px solid rgba(201,164,92,.4)', background: 'radial-gradient(ellipse at 50% 30%, rgba(24,80,63,1), rgba(10,42,31,0.96) 45%, rgba(7,21,17,1) 100%)', overflow: 'hidden', borderRadius: 12 }}>
               <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(transparent 0%, rgba(255,255,255,0.02) 100%)' }} />
               <div style={{ position: 'absolute', left: '50%', bottom: 8, transform: 'translateX(-50%)', fontFamily: 'Cinzel, serif', fontSize: 10, letterSpacing: '.24em', color: '#C9A45C' }}>
                 Entrée
@@ -230,7 +256,7 @@ export function PlanDeTable({ data, query, setQuery, sel, setSel }: Props) {
                     aria-label={t.nom}
                     style={{
                       position: 'absolute',
-                      left: t.displayX + '%', top: t.displayY + '%',
+                      left: t.displayX + '%', top: t.displayTop,
                       transform: 'translate(-50%, -50%)',
                     }}
                   >
