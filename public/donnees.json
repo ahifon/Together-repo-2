@@ -51,21 +51,21 @@
   ],
   "contacts": [
     {
-      "role": "A completer",
-      "nom": "A completer",
-      "telephone": "A completer",
+      "role": "Référent 1",
+      "nom": "Barthélémy",
+      "telephone": "0675748707",
       "email": ""
     },
     {
-      "role": "A completer",
-      "nom": "A completer",
-      "telephone": "A completer",
+      "role": "Référent 2",
+      "nom": "Moise",
+      "telephone": "0650197659",
       "email": ""
-    },   
+    },
     {
-      "role": "A completer",
-      "nom": "A completer",
-      "telephone": "A completer",
+      "role": "Coordonnatrice",
+      "nom": "Rochelle",
+      "telephone": "0676698231",
       "email": ""
     }
   ],

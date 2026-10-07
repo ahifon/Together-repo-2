@@ -12,6 +12,8 @@ export interface Table {
   table?: string;
   x: number;
   y: number;
+  ligne?: number;
+  colonne?: number;
   honneur?: boolean;
   invites: Invite[];
 }
