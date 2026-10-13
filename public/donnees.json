@@ -50,6 +50,13 @@
     }
   ],
   "contacts": [
+
+    {
+      "role": "Coordonnatrice",
+      "nom": "Rochelle",
+      "telephone": "0676698231",
+      "email": ""
+    },
     {
       "role": "Référent 1",
       "nom": "Barthélémy",
@@ -58,22 +65,17 @@
     },
     {
       "role": "Référent 2",
-      "nom": "Moise",
-      "telephone": "0650197659",
-      "email": ""
-    },
-    {
-      "role": "Référent 3",
       "nom": "Aïna",
       "telephone": "0626763657",
       "email": ""
     },
     {
-      "role": "Coordonnatrice",
-      "nom": "Rochelle",
-      "telephone": "0676698231",
+      "role": "Référent 3",
+      "nom": "Moise",
+      "telephone": "0650197659",
       "email": ""
     }
+
   ],
   "deroule": [
     {
