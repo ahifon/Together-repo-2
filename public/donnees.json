@@ -23,14 +23,14 @@
     {
       "heure": "16:00",
       "titre": "Séance photo",
-      "lieu": "Parvis et jardins du domaine",
+      "lieu": "Jardins de la VENERIE",
       "description": "Photos de famille en premier, puis photo de groupe avec tous les invités.",
       "icone": "photo"
     },
     {
       "heure": "17:00",
       "titre": "Vin d'honneur",
-      "lieu": "Terrasse du domaine",
+      "lieu": "Espace dedié",
       "description": "Champagne, cocktails et bouchées salées en musique.",
       "icone": "flutes"
     },
