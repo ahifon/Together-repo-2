@@ -52,7 +52,7 @@ const FALLBACK_WEDDING_DATA: Data = {
       heure: '14:00',
       titre: 'Cérémonie religieuse',
       lieu: 'Église Saint-Pierre',
-      description: 'Merci d’arriver 15 minutes avant le début de la cérémonie.',
+      description: '',
       icone: 'alliances',
     },
     {

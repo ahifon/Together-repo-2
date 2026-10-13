@@ -108,7 +108,7 @@ export function Journee({ data, now }: Props) {
               </div>
               <div style={{ marginTop: 2, fontSize: 22, fontWeight: 600, lineHeight: 1.2 }}>{s.titre}</div>
               <div style={{ marginTop: 2, fontFamily: 'Cinzel, serif', fontSize: 11, letterSpacing: '.1em', color: '#C9A45C' }}>{s.lieu}</div>
-              <div style={{ marginTop: 6, fontSize: 17, lineHeight: 1.4, color: 'rgba(246,239,226,.88)' }}>{s.description}</div>
+              {s.description && <div style={{ marginTop: 6, fontSize: 17, lineHeight: 1.4, color: 'rgba(246,239,226,.88)' }}>{s.description}</div>}
             </div>
           </div>
         ))}
